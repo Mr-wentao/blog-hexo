@@ -1,0 +1,150 @@
+{
+  "main": {
+    "id": "652f242154e65838",
+    "type": "split",
+    "children": [
+      {
+        "id": "1393754cd5783a31",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8267135b7db9bd95",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "e6677c15b2caed33",
+    "type": "split",
+    "children": [
+      {
+        "id": "aff795919a82db3a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "280c7fe232c6d627",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "002e17d9f7c7599f",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "317d4a7981cc9c9b",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "efccaf786a8408e2",
+    "type": "split",
+    "children": [
+      {
+        "id": "e52304659fd0ea5e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "034a44181a04581a",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "fa62466680a3cc90",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "028339b800e85ced",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "e622013eb5b0a91e",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false
+    }
+  },
+  "active": "8267135b7db9bd95",
+  "lastOpenFiles": [
+    "source/_posts/ES之x-pack-core-7.14.2破解.md",
+    "2fd2987d32500480a73c26ba2120a5db_7afd42833a9b48078707be14e8ad3ca0 1.png",
+    "2fd2987d32500480a73c26ba2120a5db_7afd42833a9b48078707be14e8ad3ca0.png",
+    "fc40b785ead4d6c7c7f08edafab034e2_c9d4aa94d5664aa89a341ad7980bd402.png",
+    "c9d4aa94d5664aa89a341ad7980bd402.png",
+    "source/_posts/k8s部署单节点mongodb.md"
+  ]
+}
