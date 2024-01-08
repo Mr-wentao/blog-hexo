@@ -1,7 +1,6 @@
 ---
 title: 查询redis未设置过期时间的key
-date: 2024-01-02 14:17:58
-tags:
+tags: 查询redis未设置过期时间的key
 ---
 
 **查询并导出redis中没有设置过期时间的key**

@@ -1,7 +1,6 @@
 ---
-title: redis-cli常用命令
-date: 2024-01-02 14:17:58
-tags:
+title: prometheus监控部署及常规组件
+tags: prometheus监控部署及常规组件
 ---
 
 **prometheus.yaml**

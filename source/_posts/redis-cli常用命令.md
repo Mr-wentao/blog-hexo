@@ -1,7 +1,6 @@
 ---
 title: redis-cli常用命令
-date: 2024-01-02 14:17:58
-tags:
+tags: redis-cli常用命令
 ---
 
 **redis登录**
