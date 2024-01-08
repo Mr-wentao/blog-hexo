@@ -51,7 +51,9 @@ avatar:
 disable_top_img: false
 
 # The banner image of home page
-index_img: /img/head.png
+index_img: 
+  img: /img/head.png
+  effect: false
 
 # If the banner of page not setting, it will show the top_img
 default_top_img:
