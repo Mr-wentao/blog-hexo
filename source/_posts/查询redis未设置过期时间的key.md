@@ -26,8 +26,8 @@ python3 check_redis.py -host 127.0.0.1 -p 6379 -d 0 -a test1111
 date: 2020-12-05
 func: 查找Redis中没有设置ttl的 key
 Note:
-    如果提示没有Redis模块“ImportError: No module named redis”，
-    请执行“python -m pip install redis”安装Redis模块；
+    如果提示没有Redis模块“ImportError: No module named redis”
+    请执行“python -m pip install redis”安装Redis模块
     默认每扫描1000个key即休眠0.5秒。
     python3 check_redis.py -host 127.0.0.1 -p 6379 -d 0 -a test1111
 """
@@ -79,7 +79,7 @@ def check_ttl(redis_conn, no_ttl_file, dbindex, scannum_thensleep):
     keys_num = redis_conn.dbsize()
     print("there are {num} keys in db[{index}] ".format(num=keys_num, index=dbindex))
     # 打印扫描db开始时间
-    print("startTime of db[{index}] is ：{start_time}".format(index=dbindex, start_time=time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())))
+    print("startTime of db[{index}] is : {start_time}".format(index=dbindex, start_time=time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())))
     process_bar = ShowProcess(keys_num)
     with open(no_ttl_file, 'wb') as f:
         for key in redis_conn.scan_iter(count=1000):
