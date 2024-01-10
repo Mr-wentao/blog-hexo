@@ -13,6 +13,9 @@ menu:
   时间轴: /archives/ || fas fa-archive
   标签: /tags/ || fas fa-tags
   分类: /categories/ || fas fa-folder-open
+  List||fas fa-list:
+    监控: /监控/ || fas fa-监控
+    devops: /devops/ || fas fa-devops
   关于: /about/ || fas fa-heart
 
 # Code Blocks (代碼相關)
