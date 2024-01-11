@@ -49,7 +49,7 @@ local_search:
 # --------------------------------------
 
 # Favicon（網站圖標）
-favicon: /img/boob.jpg
+favicon: '/img/bog.jpg'
 
 # Avatar (頭像)
 avatar:
