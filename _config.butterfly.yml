@@ -8,7 +8,7 @@ menu:
   关于: /about/ || fa-brands fa-apple fa-bounce
 
 nav:
-  logo: https://static.zahui.fan/public/boob.svg
+  logo:
   display_title: true
   fixed: true # 固定导航栏
 
