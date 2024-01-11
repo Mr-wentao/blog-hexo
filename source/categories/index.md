@@ -1,5 +1,6 @@
 ---
-title: devops
-date: 2024-01-03 15:32:03
-type: devops
+title: 分类
+date: 2022-10-24 22:58:01
+type: "categories"
+comments: false
 ---

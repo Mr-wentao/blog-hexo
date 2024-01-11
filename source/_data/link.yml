@@ -1,0 +1,33 @@
+- class_name: 杂烩饭
+  class_desc: 我的其他站点
+  link_list:
+    - name: 直链网盘
+      link: https://file.babudiu.com/
+      avatar: https://static.zahui.fan/images/202307021107569.png
+      descr: 以存储无关的方式组织你的文件
+    
+    - name: 把布丢
+      link: https://babudiu.com/
+      avatar: https://babudiu.com/wp-content/uploads/2023/11/dog_catch_1_duck.png
+      descr: 分享优秀软件
+
+    - name: 张理坤
+      link: https://zhanglikun.com
+      avatar: https://babudiu.com/upload/2022/03/favicon.png
+      descr: 没想好干什么
+
+- class_name: 其他网站
+  class_desc: 值得推荐的网站
+  link_list:
+    - name: Youtube
+      link: https://www.youtube.com/
+      avatar: https://i.loli.net/2020/05/14/9ZkGg8v3azHJfM1.png
+      descr: 国外优秀的视频网站
+    - name: BiliBili
+      link: https://www.bilibili.com/
+      avatar: https://www.bilibili.com/favicon.ico?v=1
+      descr: 小破站
+    - name: Twitter
+      link: https://twitter.com/
+      avatar: https://i.loli.net/2020/05/14/5VyHPQqR6LWF39a.png
+      descr: 人称国外小微博

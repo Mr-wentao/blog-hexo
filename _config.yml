@@ -3,21 +3,21 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: wentao的blog
-subtitle: ''
-description: ''
-keywords:
-author: wentao
+title: 杂烩饭
+subtitle: '张理坤的博客 - 运维技术分享'
+description: '张理坤的个人技术博客, 致力于分享运维开发等技术经验, 由系统运维、脚本编程、devops等分类组成, 涵盖了Docker、k8s、Python、Linux、Prometheus、ElasticSearch、虚拟化等内容。'
+keywords: "Kubernetes,Prometheus,ElasticSearch,OPS,DevOps,运维,Linux,云原生"
+author: 张理坤
 language: zh-CN
-timezone: ''
+timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://blog.vrzbq.com
-permalink: :year/:month/:day/:title/
+url: https://zahui.fan
+permalink: posts/:abbrlink/
 permalink_defaults:
 pretty_urls:
-  trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
+  trailing_index: false # Set to false to remove trailing 'index.html' from permalinks
   trailing_html: true # Set to false to remove trailing '.html' from permalinks
 
 # Directory
@@ -28,7 +28,13 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render:
+skip_render: 
+# 这里排除的是obsidian编辑器需要的文件
+  - '_posts/.obsidian/**'
+  - '_posts/Scripts/**'
+  - '_posts/Templates/**'
+  - '_posts/笔记/**'
+  - '**/README.md'
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -43,14 +49,15 @@ render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: true
-syntax_highlighter: highlight.js
 highlight:
+  enable: true
   line_number: true
   auto_detect: false
   tab_replace: ''
   wrap: true
   hljs: false
 prismjs:
+  enable: false
   preprocess: true
   line_number: true
   tab_replace: ''
@@ -90,15 +97,90 @@ pagination_dir: page
 # Include / Exclude file(s)
 ## include:/exclude: options only apply to the 'source/' folder
 include:
-exclude:
+exclude: 
 ignore:
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: butterfly 
+theme: butterfly
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: ''
+
+
+search:
+  path: search.xml
+  field: post
+  content: true
+  # template: ./search.xml
+
+# 百度sitemap插件
+# npm install hexo-generator-baidu-sitemap --save
+# https://github.com/coneycode/hexo-generator-baidu-sitemap
+baidusitemap:
+  path: baidusitemap.xml
+
+# sitemap 插件
+# npm install hexo-generator-sitemap --save
+# https://github.com/hexojs/hexo-generator-sitemap
+sitemap:
+  path: 
+    - sitemap.xml
+    - sitemap.txt
+  # template: ./sitemap_template.xml
+  # template_txt: ./sitemap_template.txt
+  rel: false
+  tags: true
+  categories: true
+
+# https://github.com/hexojs/hexo-filter-nofollow
+# npm i hexo-filter-nofollow --save
+nofollow:
+  enable: true
+  field: site
+  # exclude:
+  #   - 'exclude1.com'
+  #   - 'exclude2.com'
+
+# https://github.com/hexojs/hexo-generator-feed
+# npm install hexo-generator-feed --save
+feed:
+  enable: true
+  type: atom
+  path: atom.xml
+  limit: 20
+  hub:
+  content:
+  content_limit: 140
+  content_limit_delim: ' '
+  order_by: -date
+  icon: icon.png
+  autodiscovery: true
+  template:
+
+# abbrlink
+# npm install hexo-abbrlink-iuxt --save
+# abbrlink config
+abbrlink:
+  alg: crc32      #support crc16(default) and crc32
+  rep: hex        #support dec(default) and hex
+  drafts: false   #(true)Process draft,(false)Do not process draft. false(default) 
+  auto_category:
+    enable: true
+    depth: 1
+    over_write: true
+# https://github.com/xu-song/hexo-auto-category
+# 这个开源项目被abbrlink集成了，所以不用安装 hexo-auto-category 了
+
+
+# npm install hexo-algolia --save
+# 执行  npx hexo algolia  上传
+# Admin Key 配置在环境变量 HEXO_ALGOLIA_INDEXING_KEY 中
+# algolia:
+#   applicationID: "0X0RJDH8JN" # AppID
+#   apiKey: "d5a6d26da8e40a42c5f465bdf1bd2901" # Search API Key
+#   indexName: "zahuifan" # index
+#   chunkSize: 5000

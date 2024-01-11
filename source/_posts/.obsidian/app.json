@@ -1,0 +1,19 @@
+{
+  "promptDelete": false,
+  "readableLineLength": false,
+  "autoConvertHtml": false,
+  "userIgnoreFilters": [
+    "Scripts/",
+    "Templates/"
+  ],
+  "useTab": false,
+  "vimMode": false,
+  "newFileLocation": "current",
+  "strictLineBreaks": true,
+  "pdfExportSettings": {
+    "pageSize": "Letter",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  }
+}

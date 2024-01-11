@@ -1,0 +1,346 @@
+---
+title: 使用kubeadm部署一套高可用k8s 1.26集群 for AlmaLinux9
+abbrlink: lq0y87n5
+cover: 'https://static.zahui.fan/images/202211212221065.svg'
+categories:
+  - Kubernetes
+tags:
+  - Linux
+  - Container
+  - Kubernetes
+  - 配置记录
+date: 2023-12-11 21:44:33
+---
+
+
+> 基于AlmaLinux9使用kubeadm搭建集群， [ubuntu部署文档](/posts/526ffc9a/), 有疑问的地方可以看[官方文档](https://kubernetes.io/zh/docs/setup/production-environment/tools/kubeadm/)
+
+## 准备机器
+
+> 我的机器详情如下, 配置至少为4C4G
+
+| hostname | IP        | 作用                                  |
+| -------- | --------- | ------------------------------------- |
+| public   | 10.0.0.3  | ingress和apiserver的负载均衡，nfs存储 |
+| master1  | 10.0.0.11 | k8s master节点                        |
+| master2  | 10.0.0.12 | k8s master节点                        |
+| master3  | 10.0.0.13 | k8s master节点                        |
+| worker1  | 10.0.0.21 | k8s worker节点                        |
+| worker2  | 10.0.0.22 | k8s worker节点                        |
+
+每台机器都做域名解析，或者绑定hosts（直接使用ip地址会有警告）
+
+```bash
+vim /etc/hosts
+
+10.0.0.3  public kube-apiserver
+10.0.0.11 master1
+10.0.0.12 master2
+10.0.0.13 master3
+```
+
+每台机器都关闭防火墙和SELinux
+
+> 负载均衡机器必须要关闭,因为6443不是nginx的标准端口,会被selinux拦截, 防火墙也需要放行6443端口, 可以考虑直接关闭防火墙
+
+```bash
+sudo systemctl disable --now firewalld
+setenforce 0
+sed -i "s/^SELINUX=.*/SELINUX=disabled/g" /etc/selinux/config
+```
+
+## 基础环境配置
+
+> 基础环境是不管master还是worker都需要的环境
+
+1. 禁用swap
+2. 确保每个节点上 MAC 地址和 product_uuid 的唯一性`sudo cat /sys/class/dmi/id/product_uuid`
+3. 修改hostname
+
+### 安装runtime
+
+#### 先决条件
+
+```bash
+# 设置必需的 sysctl 参数，这些参数在重新启动后仍然存在。
+cat <<EOF | sudo tee /etc/sysctl.d/99-kubernetes-cri.conf
+net.bridge.bridge-nf-call-iptables  = 1
+net.ipv4.ip_forward                 = 1
+net.bridge.bridge-nf-call-ip6tables = 1
+EOF
+
+# 应用 sysctl 参数而无需重新启动
+sudo sysctl --system
+```
+
+#### 安装
+
+```bash
+cat <<EOF | sudo tee /etc/modules-load.d/containerd.conf
+overlay
+br_netfilter
+EOF
+
+sudo modprobe overlay
+sudo modprobe br_netfilter
+
+
+# 卸载旧版本Docker
+sudo yum remove docker \
+              docker-client \
+              docker-client-latest \
+              docker-common \
+              docker-latest \
+              docker-latest-logrotate \
+              docker-logrotate \
+              docker-engine
+
+# 安装docker仓库
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+
+# 安装containerd
+sudo yum install containerd.io -y
+```
+
+#### 配置
+
+从yum源安装的containerd默认禁用了cri，可以使用命令重新生成默认配置
+
+```bash
+containerd config default | sudo tee /etc/containerd/config.toml
+```
+
+结合 runc 使用 systemd cgroup 驱动，在 `/etc/containerd/config.toml` 中设置
+
+```toml
+[plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc]
+...
+[plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc.options]
+   SystemdCgroup = true
+```
+
+```bash
+sudo systemctl enable containerd
+sudo systemctl restart containerd
+```
+
+#### crictl 配置
+
+之前使用docker的时候，docker给我们做了很多好用的工具，现在用了containerd，管理容器我们用cri管理工具crictl，创建配置文件
+
+vim /etc/crictl.yaml
+
+```yaml
+runtime-endpoint: unix:///run/containerd/containerd.sock
+debug: false
+```
+
+### 安装kubeadm、kubelet 和 kubectl
+
+```bash
+cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-\$basearch
+enabled=1
+gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+exclude=kubelet kubeadm kubectl
+EOF
+
+# 查看可用的版本
+yum list kubelet kubeadm kubectl  --showduplicates --disableexcludes=kubernetes
+
+sudo yum install -y kubelet-1.26.9-0 kubeadm-1.26.9-0 kubectl-1.26.9-0 --disableexcludes=kubernetes
+
+sudo systemctl enable --now kubelet
+```
+
+## 准备负载均衡
+
+
+
+在`public`机器上执行
+
+```bash
+dnf install -y nginx nginx-all-modules
+```
+
+`vim nginx.conf`
+
+```conf
+# 将server块监听80端口这一段删除
+    server {
+        listen       80;
+        listen       [::]:80;
+        server_name  _;
+        root         /usr/share/nginx/html;
+
+        # Load configuration files for the default server block.
+        include /etc/nginx/default.d/*.conf;
+
+        error_page 404 /404.html;
+        location = /404.html {
+        }
+
+        error_page 500 502 503 504 /50x.html;
+        location = /50x.html {
+        }
+    }
+
+
+# 在文件最后添加
+stream {
+    include stream.conf;
+}
+```
+
+然后`vim /etc/nginx/stream.conf`
+
+```conf
+upstream k8s-apiserver {
+    server master1:6443;
+    server master2:6443;
+    server master3:6443;
+}
+server {
+    listen 6443;
+    proxy_connect_timeout 1s;
+    proxy_pass k8s-apiserver;
+}
+upstream ingress-http {
+    server 10.0.0.21:30080;   # 这里需要更改成ingress的NodePort
+    server 10.0.0.22:30080;   # 这里需要更改成ingress的NodePort
+}
+server {
+    listen 80;
+    proxy_connect_timeout 1s;
+    proxy_pass ingress-http;
+}
+upstream ingress-https {
+    server 10.0.0.21:30443;   # 这里需要更改成ingress的NodePort
+    server 10.0.0.22:30443;   # 这里需要更改成ingress的NodePort
+}
+server {
+    listen 443;
+    proxy_connect_timeout 1s;
+    proxy_pass ingress-https;
+}
+```
+
+
+## 创建集群
+
+### kubeadm init
+
+在master1上执行
+
+```bash
+sudo kubeadm init \
+--kubernetes-version 1.26.9 \
+--control-plane-endpoint "kube-apiserver:6443" \
+--upload-certs \
+--service-cidr=10.96.0.0/12 \
+--pod-network-cidr=10.244.0.0/16
+```
+
+> 也可以用`kubeadm config print init-defaults > init.yaml` 生成kubeadm的配置，并用
+> `kubeadm init --config=init.yaml`来创建集群。
+
+### 安装网络插件
+
+{% tabs TabName %}
+
+<!-- tab 安装flannel插件 -->
+
+```bash
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+```
+
+<!-- endtab -->
+
+<!-- tab 安装calico插件 -->
+
+```bash
+待补充
+```
+
+<!-- endtab -->
+{% endtabs %}
+
+### 获取join命令, 增加新的节点
+
+#### node
+
+> kubeadm init 后会把加入master节点和加入worker节点的命令输出在终端上, 有效期2小时, 如果超时，可以重新生成
+
+生成添加命令:
+
+```bash
+kubeadm token create --print-join-command
+```
+
+#### master
+
+1. 生成证书, 记录`certificate key`
+
+    ```bash
+    kubeadm init phase upload-certs --upload-certs
+    ```
+
+2. 获取加入命令
+
+    ```bash
+    kubeadm token create --print-join-command
+    ```
+
+3. 上面两步可以简化成
+
+    ```bash
+    echo "$(kubeadm token create --print-join-command) --control-plane --certificate-key $(kubeadm init phase upload-certs --upload-certs | tail -1)"
+    ```
+
+
+## 常见问题
+
+[常见问题](/posts/526ffc9a/#常见问题)
+
+### 修改kube-proxy代理模式
+
+相比iptables，使用ipvs可以提供更好的性能
+```bash
+kubectl -n kube-system edit configmap kube-proxy
+```
+
+mode参数修改成ipvs
+
+![image.png](https://static.zahui.fan/images/202312112232082.png)
+
+
+```bash
+kubectl -n kube-system rollout restart daemonset kube-proxy
+```
+
+查看kube-proxy日志，出现 Using ipvs Proxier 说明修改成功。
+![image.png](https://static.zahui.fan/images/202312112236807.png)
+
+### 如何移除节点
+
+移除worker节点
+
+```bash
+kubectl drain worker2 --ignore-daemonsets
+kubectl delete node worker2
+```
+
+如果是master节点还需要移除etcd member
+```bash
+kubectl exec -it -n kube-system etcd-master1 -- /bin/sh
+
+# 查看etcd member list
+etcdctl --endpoints 127.0.0.1:2379 --cacert /etc/kubernetes/pki/etcd/ca.crt --cert /etc/kubernetes/pki/etcd/server.crt --key /etc/kubernetes/pki/etcd/server.key member list
+
+# 通过ID来删除etcd member
+etcdctl --endpoints 127.0.0.1:2379 --cacert /etc/kubernetes/pki/etcd/ca.crt --cert /etc/kubernetes/pki/etcd/server.crt --key /etc/kubernetes/pki/etcd/server.key member remove 12637f5ec2bd02b8
+```

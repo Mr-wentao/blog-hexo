@@ -1,0 +1,6 @@
+# obsidian工作空间
+.obsidian/workspace.json
+.obsidian/hotkeys.json
+
+# obsidian 的 image auto upload 插件配置数据
+.obsidian/plugins/obsidian-image-auto-upload-plugin/data.json
