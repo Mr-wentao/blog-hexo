@@ -2,7 +2,7 @@
 title: KVM虚拟机常用操作记录
 abbrlink: 4926dc90
 categories:
-  - 基础运维
+  - devops
 tags:
   - VirtualMachine
   - 配置记录

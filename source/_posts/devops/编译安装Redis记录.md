@@ -1,7 +1,7 @@
 ---
 title: 编译安装Redis记录
 categories:
-  - 基础运维
+  - devops
 tags:
   - 记录
   - 编译

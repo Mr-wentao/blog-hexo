@@ -3,7 +3,7 @@ title: Shell脚本接受参数
 abbrlink: 7635ef7e
 cover: 'https://static.zahui.fan/images/202211041307268.jpg'
 categories:
-  - 基础运维
+  - devops
 tags:
   - Shell
   - Script

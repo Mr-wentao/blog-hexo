@@ -1,7 +1,7 @@
 ---
 title: 备份MySQL脚本-shell版
 categories:
-  - 基础运维
+  - devops
 tags:
   - 备份还原
   - MySQL

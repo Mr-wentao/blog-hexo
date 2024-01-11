@@ -2,7 +2,7 @@
 title: git常用操作记录
 abbrlink: 518e617c
 categories:
-  - 基础运维
+  - devops
 tags:
   - Linux
   - Git

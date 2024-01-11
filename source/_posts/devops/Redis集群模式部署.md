@@ -1,7 +1,7 @@
 ---
 title: Redis集群模式部署
 categories:
-  - 基础运维
+  - devops
 tags:
   - redis
 abbrlink: 5cc4b89d

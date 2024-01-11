@@ -2,7 +2,7 @@
 title: Puppet遍历hash生成array
 abbrlink: bee2f20f
 categories:
-  - 基础运维
+  - devops
 tags:
   - Puppet
 date: 2021-07-05 14:26:54

@@ -3,7 +3,7 @@ title: 使用acme.sh来自动更新https证书
 abbrlink: 1e777b9e
 cover: 'https://static.zahui.fan/images/202211041307268.jpg'
 categories:
-  - 基础运维
+  - devops
 tags:
   - Linux
   - SSL

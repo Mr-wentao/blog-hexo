@@ -3,7 +3,7 @@ title: Linux常用命令之xargs
 abbrlink: d680904b
 cover: 'https://static.zahui.fan/images/202211041307268.jpg'
 categories:
-  - 基础运维
+  - devops
 tags:
   - Linux
   - Command

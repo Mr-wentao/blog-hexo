@@ -2,7 +2,7 @@
 title: 使用radius和OpenLDAP来认证unifi AP
 abbrlink: c0e7cc9a
 categories:
-  - 基础运维
+  - devops
 tags:
   - Network
   - Auth

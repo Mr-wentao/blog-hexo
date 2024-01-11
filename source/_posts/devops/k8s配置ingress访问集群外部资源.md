@@ -1,6 +1,8 @@
 ---
 title: k8s配置ingress访问集群外部资源
 tags: k8s配置ingress访问集群外部资源
+categories:
+  - devops
 ---
 
 **使用ingress访问外部资源，首先需要创建service指向我们需要访问的资源

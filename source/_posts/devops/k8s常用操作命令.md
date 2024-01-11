@@ -1,6 +1,8 @@
 ---
 title: k8s常用操作命令
 tags: k8s常用操作命令
+categories:
+  - devops
 ---
 
 **创建k8s-api管理员token**

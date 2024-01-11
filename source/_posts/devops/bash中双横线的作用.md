@@ -3,7 +3,7 @@ title: Bash中双横线的作用
 abbrlink: 314a3942
 cover: 'https://static.zahui.fan/images/202211041307268.jpg'
 categories:
-  - 基础运维
+  - devops
 tags:
   - Linux
   - Shell

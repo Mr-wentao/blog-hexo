@@ -2,7 +2,7 @@
 title: Nginx设置图片防盗链
 abbrlink: 9e870c50
 categories:
-  - 基础运维
+  - devops
 tags:
   - Nginx
   - 配置记录

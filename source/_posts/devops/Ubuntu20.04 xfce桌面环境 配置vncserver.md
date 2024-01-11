@@ -2,7 +2,7 @@
 title: Ubuntu20.04 xfce桌面环境 配置vncserver
 abbrlink: bd65d26a
 categories:
-  - 基础运维
+  - devops
 tags:
   - vnc
   - RemoteControl

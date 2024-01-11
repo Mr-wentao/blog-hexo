@@ -1,7 +1,7 @@
 ---
 title: Debian常用配置
 categories:
-  - 基础运维
+  - devops
 tags:
   - 配置记录
 abbrlink: 8c4ff9d2

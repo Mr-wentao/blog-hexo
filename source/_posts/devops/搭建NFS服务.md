@@ -2,7 +2,7 @@
 title: 搭建NFS服务
 abbrlink: 4b677f68
 categories:
-  - 基础运维
+  - devops
 tags:
   - 配置记录
   - NFS

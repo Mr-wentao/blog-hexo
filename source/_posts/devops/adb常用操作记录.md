@@ -3,7 +3,7 @@ title: adb常用操作记录
 abbrlink: b1ffa547
 cover: 'https://static.zahui.fan/images/202211041307268.jpg'
 categories:
-  - 基础运维
+  - devops
 tags:
   - adb
   - Android

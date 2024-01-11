@@ -3,7 +3,7 @@ title: 使用expect来解决命令交互问题
 abbrlink: 751c3cf9
 cover: 'https://static.zahui.fan/images/202211041307268.jpg'
 categories:
-  - 基础运维
+  - devops
 tags:
   - Script
   - Bash

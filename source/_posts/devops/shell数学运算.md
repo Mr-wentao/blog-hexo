@@ -3,7 +3,7 @@ title: Shell数学运算
 abbrlink: cd044a59
 cover: 'https://static.zahui.fan/images/202211041307268.jpg'
 categories:
-  - 基础运维
+  - devops
 tags:
   - Shell
   - Script

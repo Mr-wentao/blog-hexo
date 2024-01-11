@@ -1,7 +1,7 @@
 ---
 title: CentOS7更新内核版本
 categories:
-  - 基础运维
+  - devops
 tags:
   - centos
 abbrlink: 8a7e6530

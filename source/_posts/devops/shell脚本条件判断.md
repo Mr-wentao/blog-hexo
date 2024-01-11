@@ -1,7 +1,7 @@
 ---
 title: shell脚本条件判断与比较运算
 categories:
-  - 基础运维
+  - devops
 tags:
   - shell
 abbrlink: le2ugemu

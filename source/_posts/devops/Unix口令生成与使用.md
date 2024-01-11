@@ -3,7 +3,7 @@ title: Unix口令生成与使用
 abbrlink: 6447a6a9
 cover: 'https://static.zahui.fan/images/202211041307268.jpg'
 categories:
-  - 基础运维
+  - devops
 tags:
   - Linux
   - Auth

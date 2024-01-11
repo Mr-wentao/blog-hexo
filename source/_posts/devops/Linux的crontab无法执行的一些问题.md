@@ -2,7 +2,7 @@
 title: Linux的crontab无法执行的一些问题
 abbrlink: 63d10d9c
 categories:
-  - 基础运维
+  - devops
 tags:
   - Crontab
   - Linux

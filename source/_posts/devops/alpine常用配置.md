@@ -3,7 +3,7 @@ title: alpine常用配置
 abbrlink: c43764dd
 cover: 'https://static.zahui.fan/images/202211041307268.jpg'
 categories:
-  - 基础运维
+  - devops
 tags:
   - Linux
   - 配置记录

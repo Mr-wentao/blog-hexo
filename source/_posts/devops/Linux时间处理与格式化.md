@@ -1,7 +1,7 @@
 ---
 title: Linux时间处理与格式化
 categories:
-  - 基础运维
+  - devops
 tags:
   - time
   - 时间

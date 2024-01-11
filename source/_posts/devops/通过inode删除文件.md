@@ -3,7 +3,7 @@ title: 通过inode删除文件
 abbrlink: 33d6f438
 cover: 'https://static.zahui.fan/images/202211041307268.jpg'
 categories:
-  - 基础运维
+  - devops
 tags:
   - Linux
   - Command

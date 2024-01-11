@@ -2,7 +2,7 @@
 title: Systemd入门教程all in One
 abbrlink: f94fbe20
 categories:
-  - 基础运维
+  - devops
 tags:
   - Linux
   - Systemd

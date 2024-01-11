@@ -2,7 +2,7 @@
 title: 守护进程工具supervisor
 abbrlink: 4d9192f8
 categories:
-  - 基础运维
+  - devops
 tags:
   - Linux
   - 配置记录

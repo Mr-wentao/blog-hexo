@@ -1,7 +1,7 @@
 ---
 title: ElasticSearch二进制tar包部署
 categories:
-  - 基础运维
+  - devops
 tags:
   - ElasticSearch
   - ES

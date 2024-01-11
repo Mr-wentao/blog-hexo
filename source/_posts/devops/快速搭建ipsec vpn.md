@@ -3,7 +3,7 @@ title: 快速搭建ipsec Vpn
 abbrlink: 759185f9
 cover: 'https://static.zahui.fan/images/202211041307268.jpg'
 categories:
-  - 基础运维
+  - devops
 tags:
   - Docker
   - 配置记录

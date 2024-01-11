@@ -1,7 +1,7 @@
 ---
 title: harbor接入外部trivy镜像漏洞扫描
 categories:
-  - 基础运维
+  - devops
 tags:
   - harbor
   - 镜像

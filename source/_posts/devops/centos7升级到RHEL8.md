@@ -2,7 +2,7 @@
 title: Centos7升级到RHEL8
 abbrlink: 6d586ed1
 categories:
-  - 基础运维
+  - devops
 tags:
   - Linux
   - CentOS

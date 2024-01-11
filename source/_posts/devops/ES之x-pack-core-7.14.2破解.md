@@ -1,6 +1,8 @@
 ---
 title: ES之x-pack-core-7.14.2破解
 date: 2024-01-02 11:58:06
+categories:
+  - devops
 ---
 
 

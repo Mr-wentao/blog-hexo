@@ -3,7 +3,7 @@ title: Linux网络之Bridge和Bond
 abbrlink: 8ec7155e
 cover: 'https://static.zahui.fan/images/202211041307268.jpg'
 categories:
-  - 基础运维
+  - devops
 tags:
   - Linux
   - Network

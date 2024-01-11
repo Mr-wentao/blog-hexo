@@ -3,7 +3,7 @@ title: 使用certbot自动申请ssl证书
 abbrlink: 28c679c3
 cover: 'https://static.zahui.fan/images/202211041307268.jpg'
 categories:
-  - 基础运维
+  - devops
 tags:
   - Linux
   - SSL

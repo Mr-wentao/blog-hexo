@@ -1,7 +1,7 @@
 ---
 title: curl常用操作记录
 categories:
-  - 基础运维
+  - devops
 tags:
   - curl
   - 配置记录

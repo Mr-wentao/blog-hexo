@@ -3,7 +3,7 @@ title: 常用shell组合命令
 abbrlink: 90ca4905
 cover: 'https://static.zahui.fan/images/202211041307268.jpg'
 categories:
-  - 基础运维
+  - devops
 tags:
   - Linux
   - Shell

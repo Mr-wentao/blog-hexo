@@ -1,7 +1,7 @@
 ---
 title: openssh配置记录
 categories:
-  - 基础运维
+  - devops
 tags:
   - OpenSSH
   - 配置记录

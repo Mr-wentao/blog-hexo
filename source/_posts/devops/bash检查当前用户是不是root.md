@@ -3,7 +3,7 @@ title: Bash检查当前用户是不是root
 abbrlink: 78f9310c
 cover: 'https://static.zahui.fan/images/202211041307268.jpg'
 categories:
-  - 基础运维
+  - devops
 tags:
   - bash
   - shell

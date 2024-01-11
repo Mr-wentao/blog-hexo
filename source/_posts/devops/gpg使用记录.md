@@ -1,7 +1,7 @@
 ---
 title: gpg使用记录
 categories:
-  - 基础运维
+  - devops
 tags:
   - gpg
   - 加密

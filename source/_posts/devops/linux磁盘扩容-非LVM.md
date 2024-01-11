@@ -3,7 +3,7 @@ title: linux磁盘扩容(非LVM)
 abbrlink: 33420276
 cover: 'https://static.zahui.fan/images/202211041307268.jpg'
 categories:
-  - 基础运维
+  - devops
 tags:
   - Linux
   - Disk

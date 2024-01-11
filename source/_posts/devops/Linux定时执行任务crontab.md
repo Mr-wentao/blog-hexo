@@ -2,7 +2,7 @@
 title: Linux定时执行任务crontab
 abbrlink: 2de1df7e
 categories:
-  - 基础运维
+  - devops
 tags:
   - Linux
   - Automatic

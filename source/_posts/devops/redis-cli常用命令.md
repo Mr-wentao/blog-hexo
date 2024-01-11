@@ -1,6 +1,8 @@
 ---
 title: redis-cli常用命令
 tags: redis-cli常用命令
+categories:
+  - devops
 ---
 
 **redis登录**

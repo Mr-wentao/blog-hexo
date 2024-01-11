@@ -2,7 +2,7 @@
 title: Nginx四层反向代理后端记录真实IP
 abbrlink: ee4a87b3
 categories:
-  - 基础运维
+  - devops
 tags:
   - proxy
   - 配置记录

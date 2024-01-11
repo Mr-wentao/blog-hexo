@@ -1,7 +1,7 @@
 ---
 title: 利用Nginx的rewrite来实现自动跳转
 categories:
-  - 基础运维
+  - devops
 tags:
   - Nginx
 abbrlink: ldsv2ssw

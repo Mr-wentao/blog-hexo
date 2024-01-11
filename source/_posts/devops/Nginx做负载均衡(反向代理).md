@@ -2,7 +2,7 @@
 title: Nginx负载均衡(反向代理)
 abbrlink: 0f0ebc52
 categories:
-  - 基础运维
+  - devops
 tags:
   - LoadBalance
   - Nginx

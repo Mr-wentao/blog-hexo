@@ -1,7 +1,7 @@
 ---
 title: Jenkins pipeline中正确使用git
 categories:
-  - 基础运维
+  - devops
 tags:
   - jenkins
   - 配置记录

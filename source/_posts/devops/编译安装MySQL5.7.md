@@ -3,7 +3,7 @@ title: 编译安装MySQL5.7
 abbrlink: b670229a
 cover: 'https://static.zahui.fan/images/202211012250095.svg'
 categories:
-  - 基础运维
+  - devops
 tags:
   - 配置记录
   - MySQL

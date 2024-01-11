@@ -3,7 +3,7 @@ title: Linux查看系统硬件信息
 abbrlink: 6a0f629b
 cover: 'https://static.zahui.fan/images/202211041307268.jpg'
 categories:
-  - 基础运维
+  - devops
 tags:
   - Linux
   - 硬件信息

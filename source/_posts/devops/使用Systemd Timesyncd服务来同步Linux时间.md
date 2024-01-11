@@ -2,7 +2,7 @@
 title: 使用Systemd Timesyncd服务来同步Linux时间
 abbrlink: c4366641
 categories:
-  - 基础运维
+  - devops
 tags:
   - Linux
   - time

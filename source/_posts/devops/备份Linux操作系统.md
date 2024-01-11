@@ -1,7 +1,7 @@
 ---
 title: 备份Linux操作系统
 categories:
-  - 基础运维
+  - devops
 tags:
   - 备份还原
   - Linux

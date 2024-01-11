@@ -2,7 +2,7 @@
 title: Nginx Status监控
 abbrlink: 7d58920d
 categories:
-  - 基础运维
+  - devops
 tags:
   - Nginx
   - Monitor

@@ -5,7 +5,7 @@ tags:
   - 配置记录
 abbrlink: a7c8660c
 categories:
-  - 基础运维
+  - devops
 date: 2022-02-11 11:18:21
 ---
 

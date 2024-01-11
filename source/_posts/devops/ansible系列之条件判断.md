@@ -2,7 +2,7 @@
 title: Ansible系列之条件判断
 abbrlink: a361f259
 categories:
-  - 基础运维
+  - devops
 tags:
   - Ansible
 date: 2022-02-16 11:45:19

@@ -2,7 +2,7 @@
 title: openSUSE常用配置
 abbrlink: 9f2e533a
 categories:
-  - 基础运维
+  - devops
 tags:
   - Linux
   - 配置记录

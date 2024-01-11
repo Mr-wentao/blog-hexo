@@ -2,7 +2,7 @@
 title: Puppet Server从部署到上线使用
 abbrlink: e8243516
 categories:
-  - 基础运维
+  - devops
 tags:
   - Puppet
 date: 2021-10-21 17:41:56

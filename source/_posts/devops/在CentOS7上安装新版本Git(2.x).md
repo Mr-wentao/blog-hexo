@@ -2,7 +2,7 @@
 title: 在CentOS7上安装新版本Git(2.x)
 abbrlink: 5a398dc9
 categories:
-  - 基础运维
+  - devops
 tags:
   - git
   - 配置记录

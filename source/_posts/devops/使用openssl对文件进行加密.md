@@ -1,7 +1,7 @@
 ---
 title: 使用openssl对文件进行加密
 categories:
-  - 基础运维
+  - devops
 tags:
   - 加密
   - SSL

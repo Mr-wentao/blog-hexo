@@ -2,7 +2,7 @@
 title: Nginx开启基本http认证
 abbrlink: 5855bc56
 categories:
-  - 基础运维
+  - devops
 tags:
   - Nginx
   - Auth

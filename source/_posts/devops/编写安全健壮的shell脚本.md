@@ -3,7 +3,7 @@ title: 编写安全健壮的shell脚本
 abbrlink: b82d63c2
 cover: 'https://static.zahui.fan/images/202211041307268.jpg'
 categories:
-  - 基础运维
+  - devops
 tags:
   - shell
   - bash

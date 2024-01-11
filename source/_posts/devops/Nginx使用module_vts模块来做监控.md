@@ -2,7 +2,7 @@
 title: Nginx使用module_vts模块来做监控
 abbrlink: c6a32841
 categories:
-  - 基础运维
+  - devops
 tags:
   - Nginx
   - Monitor

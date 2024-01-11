@@ -1,6 +1,8 @@
 ---
 title: 腾讯云tke-ingress开启ingress域名访问日志
 tags: 腾讯云tke-ingress开启ingress域名访问日志
+categories:
+  - devops
 ---
 
 **容器类型为containers的tke集群控制台创建完ingress-controller之后，由于默认日志是打印在pod内的文件，现在需要自行收集访问日志，需要把日志打印在正常的pod输出上在收集**

@@ -3,7 +3,7 @@ title: Linux性能分析
 abbrlink: 8ea6978b
 cover: 'https://static.zahui.fan/images/202211041307268.jpg'
 categories:
-  - 基础运维
+  - devops
 tags:
   - Linux
   - Command
