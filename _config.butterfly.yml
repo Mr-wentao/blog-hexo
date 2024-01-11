@@ -49,7 +49,7 @@ local_search:
 # --------------------------------------
 
 # Favicon（網站圖標）
-favicon: https://static.zahui.fan/public/boob.svg
+favicon: /img/boob.jpg
 
 # Avatar (頭像)
 avatar:
