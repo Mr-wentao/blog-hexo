@@ -34,10 +34,7 @@ copy:
 # formal:
 #   icon: link || the description
 social:
-  fab fa-github: https://github.com/iuxt || Github
-  fas fa-envelope: mailto:x@zahui.fan || Email
-  fa-brands fa-bilibili: https://space.bilibili.com/165330963 || Bilibili
-  fa-brands fa-stack-overflow: https://stackoverflow.com/users/15620461/ || StackOverflow
+  fab fa-github: https://github.com/Mr-wentao/blog-hexo || Github
   fa-solid fa-square-rss: /atom.xml || RSS
 
 # Local search
@@ -190,7 +187,6 @@ footer:
       提供CDN加速/云存储服务
     </a>
     </br>
-    <a href="https://beian.miit.gov.cn/" target="_blank">沪ICP备2021015230号-1</a>
   copyright: false # Copyright of theme and framework
 
 baidu_analytics: 50b516d50102c8c9ac5f80529b81ca17
@@ -242,7 +238,7 @@ aside:
       enable: true
       icon: fab fa-github
       text: Follow Me
-      link: https://github.com/iuxt
+      link: https://github.com/Mr-wentao
   card_announcement:
     enable: true
     content: |
