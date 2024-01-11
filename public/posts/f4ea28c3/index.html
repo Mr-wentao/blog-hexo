@@ -1,0 +1,325 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>LVM逻辑卷管理 | BLOG</title><meta name="author" content="wentao"><meta name="copyright" content="wentao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="LVM是Logical Volume Manager的缩写，中文逻辑卷管理，LVM是建立在磁盘分区和文件系统之间的一个逻辑层，LVM会更加灵活，可以动态扩容缩容分区大小。调整分区大小有风险，请做好充分测试再决定是否执行。如果没有启用lvm，请查看linux磁盘扩容 - 非LVM那么怎么知道机器有没有启用LVM呢，可以执行sudo lvdisplay查看有没有已存在的LV，对比df -hT里面的Fi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LVM逻辑卷管理">
+<meta property="og:url" content="https://blog.vrzbq.com/posts/f4ea28c3/">
+<meta property="og:site_name" content="BLOG">
+<meta property="og:description" content="LVM是Logical Volume Manager的缩写，中文逻辑卷管理，LVM是建立在磁盘分区和文件系统之间的一个逻辑层，LVM会更加灵活，可以动态扩容缩容分区大小。调整分区大小有风险，请做好充分测试再决定是否执行。如果没有启用lvm，请查看linux磁盘扩容 - 非LVM那么怎么知道机器有没有启用LVM呢，可以执行sudo lvdisplay查看有没有已存在的LV，对比df -hT里面的Fi">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://static.zahui.fan/public/skeleton1.svg">
+<meta property="article:published_time" content="2021-05-11T14:24:43.000Z">
+<meta property="article:modified_time" content="2024-01-11T10:24:31.000Z">
+<meta property="article:author" content="wentao">
+<meta property="article:tag" content="配置记录">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Disk">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://static.zahui.fan/public/skeleton1.svg"><link rel="shortcut icon" href="/img/bog.jpg"><link rel="canonical" href="https://blog.vrzbq.com/posts/f4ea28c3/"><link rel="preconnect"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?50b516d50102c8c9ac5f80529b81ca17";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-YN0WWZGVYN"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-YN0WWZGVYN');
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"此文章距离发布已经","messageNext":"天了，内容可能已经过时，请自行判断是否可用或联系博主更新。"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'LVM逻辑卷管理',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-01-11 18:24:31'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/style.min.css" /><meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="BLOG" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">200</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">185</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('https://static.zahui.fan/public/skeleton1.svg')"><nav id="nav"><span id="blog-info"><a href="/" title="BLOG"><span class="site-name">BLOG</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">LVM逻辑卷管理</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-05-11T14:24:43.000Z" title="发表于 2021-05-11 22:24:43">2021-05-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-01-11T10:24:31.000Z" title="更新于 2024-01-11 18:24:31">2024-01-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/devops/">devops</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="LVM逻辑卷管理"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>LVM是<code>Logical Volume Manager</code>的缩写，中文逻辑卷管理，LVM是建立在磁盘分区和文件系统之间的一个逻辑层，LVM会更加灵活，可以动态扩容缩容分区大小。调整分区大小有风险，请做好充分测试再决定是否执行。<br>如果没有启用<code>lvm</code>，请查看<a href="/33420276/">linux磁盘扩容 - 非LVM</a><br>那么怎么知道机器有没有启用LVM呢，可以执行<code>sudo lvdisplay</code>查看有没有已存在的LV，对比<code>df -hT</code>里面的<code>Filesystem</code>，也可以用<code>lsblk</code>查看有没有lvm。</p>
+<h2 id="LVM-的一些概念"><a href="#LVM-的一些概念" class="headerlink" title="LVM 的一些概念"></a>LVM 的一些概念</h2><p>PV：    物理卷，比如一个分区，一个磁盘<br>VG：    卷组，将多个PV整合在一起，形成一个大的池子<br>LV：    逻辑卷，从VG划分出来一个个空间，可以当作分区来看待，可以格式化，可以挂载</p>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><table>
+<thead>
+<tr>
+<th>查看</th>
+<th>扩展</th>
+<th>创建</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>vgdisplay(vgs)</td>
+<td>vgextend</td>
+<td>vgcreate</td>
+</tr>
+<tr>
+<td>lvdisplay(lvs)</td>
+<td>lvextend</td>
+<td>lvcreate</td>
+</tr>
+<tr>
+<td>pvdisplay(pvs)</td>
+<td>–</td>
+<td>pvcreate</td>
+</tr>
+</tbody></table>
+<h2 id="扩容文件系统"><a href="#扩容文件系统" class="headerlink" title="扩容文件系统"></a>扩容文件系统</h2><h3 id="物理扩容"><a href="#物理扩容" class="headerlink" title="物理扩容"></a>物理扩容</h3><blockquote>
+<p>虚拟机扩容就是扩容虚拟磁盘，物理机扩容比如可以增加硬盘。</p>
+</blockquote>
+<div class="tabs" id="tabname"><ul class="nav-tabs"><button type="button" class="tab  active" data-href="tabname-1">创建新的PV</button><button type="button" class="tab " data-href="tabname-2">扩展现有的PV</button></ul><div class="tab-contents"><div class="tab-item-content active" id="tabname-1"><blockquote>
+<p>新增硬盘，只能创建新的PV</p>
+</blockquote>
+<p>创建新分区  </p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">[root@centos7 ~]# fdisk /dev/sdb</span><br><span class="line">Welcome to fdisk (util-linux 2.23.2).</span><br><span class="line"></span><br><span class="line">Changes will remain in memory only, until you decide to write them.</span><br><span class="line">Be careful before using the write command.</span><br><span class="line"></span><br><span class="line">Device does not contain a recognized partition table</span><br><span class="line">Building a new DOS disklabel with disk identifier 0x602c2eec.</span><br><span class="line"></span><br><span class="line">Command (m for help): n</span><br><span class="line">Partition type:</span><br><span class="line">   p   primary (0 primary, 0 extended, 4 free)</span><br><span class="line">   e   extended</span><br><span class="line">Select (default p): p</span><br><span class="line">Partition number (1-4, default 1):</span><br><span class="line">First sector (2048-20971519, default 2048):</span><br><span class="line">Using default value 2048</span><br><span class="line">Last sector, +sectors or +size&#123;K,M,G&#125; (2048-20971519, default 20971519):</span><br><span class="line">Using default value 20971519</span><br><span class="line">Partition 1 of type Linux and of size 10 GiB is set</span><br><span class="line"></span><br><span class="line">Command (m for help): p</span><br><span class="line"></span><br><span class="line">Disk /dev/sdb: 10.7 GB, 10737418240 bytes, 20971520 sectors</span><br><span class="line">Units = sectors of 1 * 512 = 512 bytes</span><br><span class="line">Sector size (logical/physical): 512 bytes / 512 bytes</span><br><span class="line">I/O size (minimum/optimal): 512 bytes / 512 bytes</span><br><span class="line">Disk label type: dos</span><br><span class="line">Disk identifier: 0x602c2eec</span><br><span class="line"></span><br><span class="line">   Device Boot      Start         End      Blocks   Id  System</span><br><span class="line">/dev/sdb1            2048    20971519    10484736   83  Linux</span><br><span class="line"></span><br><span class="line">Command (m for help): t</span><br><span class="line">Selected partition 1</span><br><span class="line">Hex code (type L to list all codes): 8e</span><br><span class="line">Changed type of partition &#x27;Linux&#x27; to &#x27;Linux LVM&#x27;</span><br><span class="line"></span><br><span class="line">Command (m for help): w</span><br><span class="line">The partition table has been altered!</span><br><span class="line"></span><br><span class="line">Calling ioctl() to re-read partition table.</span><br><span class="line">Syncing disks.</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>这里有个疑问，如果不设置分区ID为<code>8e</code>，也不影响后续操作，但是<code>fdisk -l /dev/sda</code>的时候，查看到的新分区Type为Linux，而不是Linux LVM，不知道这两种有什么不同，知道的大佬麻烦告诉我一下。。</p>
+</blockquote>
+<p>创建pv</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pvcreate /dev/vdb1</span><br><span class="line">pvdisplay</span><br></pre></td></tr></table></figure>
+
+<p>添加PV到VG</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vgextend vg1 /dev/vdb1</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>添加完成<code>sudo vgdisplay</code>可以看到 <code>Free PE / Size</code> 的空间大小</p>
+</blockquote></div><div class="tab-item-content" id="tabname-2"><blockquote>
+<p>如果虚拟机是通过扩容现有硬盘的方式来扩容，可以扩展现有PV，如果是新增的硬盘，只能新建PV来扩容</p>
+</blockquote>
+<p>安装 cloud-utils</p>
+<div class="tabs" id="subtabs"><ul class="nav-tabs"><button type="button" class="tab  active" data-href="subtabs-1">Debian</button><button type="button" class="tab " data-href="subtabs-2">CentOS</button></ul><div class="tab-contents"><div class="tab-item-content active" id="subtabs-1"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install cloud-guest-utils</span><br></pre></td></tr></table></figure></div><div class="tab-item-content" id="subtabs-2"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install cloud-utils-growpart</span><br></pre></td></tr></table></figure></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div>
+
+<p>扩容 PV</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">growpart /dev/vdb 1</span><br><span class="line">pvs</span><br></pre></td></tr></table></figure></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div>
+
+<h3 id="创建或扩展LV"><a href="#创建或扩展LV" class="headerlink" title="创建或扩展LV"></a>创建或扩展LV</h3><div class="tabs" id="tabname"><ul class="nav-tabs"><button type="button" class="tab  active" data-href="tabname-1">扩展现有的LV</button><button type="button" class="tab " data-href="tabname-2">创建新的LV</button></ul><div class="tab-contents"><div class="tab-item-content active" id="tabname-1"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lvextend /dev/mapper/vg1-lv1 /dev/sda4</span><br><span class="line">lvextend -l +100%FREE /dev/mapper/vg1-lv1</span><br><span class="line">lvextend -L +1024M /dev/mapper/vg1-lv1</span><br></pre></td></tr></table></figure></div><div class="tab-item-content" id="tabname-2"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建一个指定大小的lv，并指定名字为lv2</span></span><br><span class="line">lvcreate -L 2G -n lv2 vg1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个占全部卷组大小的lv，并指定名字为lv3</span></span><br><span class="line">lvcreate -l 100%VG -n lv3 vg1</span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建一个空闲空间80%大小的lv，并指定名字为lv4</span></span><br><span class="line">lvcreate -l 80%Free -n lv4 vg1</span><br></pre></td></tr></table></figure></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div>
+
+<h3 id="格式化并挂载"><a href="#格式化并挂载" class="headerlink" title="格式化并挂载"></a>格式化并挂载</h3><blockquote>
+<p>新创建的<code>LV</code>类似于硬盘分区，需要格式化后再挂载</p>
+</blockquote>
+<p>格式化</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkfs.xfs /dev/mapper/vg1-lv1</span><br></pre></td></tr></table></figure>
+
+<p>挂载</p>
+<div class="tabs" id="tabname"><ul class="nav-tabs"><button type="button" class="tab  active" data-href="tabname-1">手动挂载</button><button type="button" class="tab " data-href="tabname-2">fstab自动挂载</button></ul><div class="tab-contents"><div class="tab-item-content active" id="tabname-1"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/mapper/vg1-lv1 /opt</span><br></pre></td></tr></table></figure></div><div class="tab-item-content" id="tabname-2"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/dev/mapper/vg1-lv1 /opt xfs defaults 0 0</span><br></pre></td></tr></table></figure></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div>
+
+<h3 id="调整文件系统大小"><a href="#调整文件系统大小" class="headerlink" title="调整文件系统大小"></a>调整文件系统大小</h3><div class="tabs" id="文件系统大小"><ul class="nav-tabs"><button type="button" class="tab  active" data-href="文件系统大小-1">ext文件系统</button><button type="button" class="tab " data-href="文件系统大小-2">xfs文件系统</button><button type="button" class="tab " data-href="文件系统大小-3">RHEL</button></ul><div class="tab-contents"><div class="tab-item-content active" id="文件系统大小-1"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo resize2fs /dev/mapper/vg1-lv1</span><br></pre></td></tr></table></figure></div><div class="tab-item-content" id="文件系统大小-2"><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo xfs_growfs /dev/mapper/vg1-lv1</span><br></pre></td></tr></table></figure></div><div class="tab-item-content" id="文件系统大小-3"><p>在早期的RHEL中，由于resize2fs无在线resize功能，故额外提供了ext2online。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ext2online /dev/mapper/vg1-lv1</span><br></pre></td></tr></table></figure></div></div><div class="tab-to-top"><button type="button" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div>
+
+<h2 id="缩小文件系统"><a href="#缩小文件系统" class="headerlink" title="缩小文件系统"></a>缩小文件系统</h2><ol>
+<li><p>卸载文件系统</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">umount /dev/vg_name/lv_name</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>检查文件系统是否有错误</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">e2fsck -f /dev/vg0/lvm1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>调整文件系统大小</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">resize2fs /dev/vg0/lvm1 10G</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>调整LV的大小</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lvreduce -L 10G /dev/vg0/lvm1</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重新挂载LV</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mount /dev/vg0/lvm1 /lvm1</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="移除PV"><a href="#移除PV" class="headerlink" title="移除PV"></a>移除PV</h2><blockquote>
+<p>比如某个PV对应的硬盘损坏，需要更换，比如需要更换<code>/dev/sdb</code></p>
+</blockquote>
+<ol>
+<li><p>查看pv使用情况</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pvdisplay</span><br></pre></td></tr></table></figure>
+
+<p> 查看对应的PV参数<code>Allocated PE</code>，若不为0表示有逻辑卷在使用，需要使用<code>pvmove /dev/sdb</code>将数据转移到其他空闲的PV上面</p>
+</li>
+<li><p>将PV从VG移出</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vgreduce vg_name /dev/sdb</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>移除PV</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pvremove /dev/sdb</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更换硬盘，然后重新创建PV，添加VG等</p>
+</li>
+</ol>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://blog.vrzbq.com">wentao</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://blog.vrzbq.com/posts/f4ea28c3/">https://blog.vrzbq.com/posts/f4ea28c3/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.vrzbq.com" target="_blank">BLOG</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E9%85%8D%E7%BD%AE%E8%AE%B0%E5%BD%95/">配置记录</a><a class="post-meta__tags" href="/tags/Linux/">Linux</a><a class="post-meta__tags" href="/tags/Disk/">Disk</a></div><div class="post_share"><div class="social-share" data-image="https://static.zahui.fan/public/skeleton1.svg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/pluginsSrc/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="/pluginsSrc/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/33420276/" title="linux磁盘扩容(非LVM)"><img class="cover" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/images/202211041307268.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">linux磁盘扩容(非LVM)</div></div></a></div><div class="next-post pull-right"><a href="/posts/b1ffa547/" title="adb常用操作记录"><img class="cover" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/images/202211041307268.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">adb常用操作记录</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/34d8fad0/" title="Kubeadm之单节点master升级高可用master"><img class="cover" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/images/202211212221065.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-15</div><div class="title">Kubeadm之单节点master升级高可用master</div></div></a></div><div><a href="/posts/b86d9e9f/" title="使用kubeadm部署一套高可用k8s集群 for CentOS"><img class="cover" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/images/202211212221065.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-07</div><div class="title">使用kubeadm部署一套高可用k8s集群 for CentOS</div></div></a></div><div><a href="/posts/526ffc9a/" title="使用kubeadm部署一套高可用k8s集群 for Ubuntu"><img class="cover" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/images/202211212221065.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-01</div><div class="title">使用kubeadm部署一套高可用k8s集群 for Ubuntu</div></div></a></div><div><a href="/posts/6f59afe4/" title="使用kubeasz搭建一套高可用的Kubernetes集群"><img class="cover" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/images/202211212221065.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-05-08</div><div class="title">使用kubeasz搭建一套高可用的Kubernetes集群</div></div></a></div><div><a href="/posts/lq0y87n5/" title="使用kubeadm部署一套高可用k8s 1.26集群 for AlmaLinux9"><img class="cover" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/images/202211212221065.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-12-11</div><div class="title">使用kubeadm部署一套高可用k8s 1.26集群 for AlmaLinux9</div></div></a></div><div><a href="/posts/lnmt2t0q/" title="Linux里安装crontab并运行"><img class="cover" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/skeleton1.svg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2023-10-12</div><div class="title">Linux里安装crontab并运行</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">wentao</div><div class="author-info__description">文涛的博客</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">200</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">185</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/Mr-wentao"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Mr-wentao/blog-hexo" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-square-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">此博客为我记录运维工作总结所用，供网友阅读参考，如有侵权，请通知我，我会核实后进行处理。
+</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#LVM-%E7%9A%84%E4%B8%80%E4%BA%9B%E6%A6%82%E5%BF%B5"><span class="toc-number">1.</span> <span class="toc-text">LVM 的一些概念</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.1.</span> <span class="toc-text">常用命令</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A9%E5%AE%B9%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">2.</span> <span class="toc-text">扩容文件系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%A9%E7%90%86%E6%89%A9%E5%AE%B9"><span class="toc-number">2.1.</span> <span class="toc-text">物理扩容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%88%96%E6%89%A9%E5%B1%95LV"><span class="toc-number">2.2.</span> <span class="toc-text">创建或扩展LV</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%B9%B6%E6%8C%82%E8%BD%BD"><span class="toc-number">2.3.</span> <span class="toc-text">格式化并挂载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B0%83%E6%95%B4%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E5%A4%A7%E5%B0%8F"><span class="toc-number">2.4.</span> <span class="toc-text">调整文件系统大小</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%A9%E5%B0%8F%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F"><span class="toc-number">3.</span> <span class="toc-text">缩小文件系统</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%BB%E9%99%A4PV"><span class="toc-number">4.</span> <span class="toc-text">移除PV</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/a6ed320f/" title="腾讯云tke-ingress开启ingress域名访问日志">腾讯云tke-ingress开启ingress域名访问日志</a><time datetime="2024-01-08T08:57:21.802Z" title="发表于 2024-01-08 16:57:21">2024-01-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/49c855ea/" title="k8s配置ingress访问集群外部资源">k8s配置ingress访问集群外部资源</a><time datetime="2024-01-08T08:55:12.198Z" title="发表于 2024-01-08 16:55:12">2024-01-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/e53e29f0/" title="k8s常用操作命令">k8s常用操作命令</a><time datetime="2024-01-08T06:41:33.624Z" title="发表于 2024-01-08 14:41:33">2024-01-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/f8409f7f/" title="prometheus监控部署及常规组件">prometheus监控部署及常规组件</a><time datetime="2024-01-08T03:20:59.247Z" title="发表于 2024-01-08 11:20:59">2024-01-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/lr0clio1/" title="获取Kubernetes的token">获取Kubernetes的token</a><time datetime="2024-01-05T08:02:08.000Z" title="发表于 2024-01-05 16:02:08">2024-01-05</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="footer_custom_text"><a target="_blank" rel="noopener external nofollow noreferrer" href='https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral'>
+  本网站由<img src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src='https://static.zahui.fan/images/202210272253029.svg' alt='又拍云' width='70' height='28' style="vertical-align:bottom">
+  提供CDN加速/云存储服务
+</a>
+</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="/pluginsSrc/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(()=>{
+  const getGiscusTheme = theme => {
+    return theme === 'dark' ? 'dark' : 'light'
+  }
+
+  const loadGiscus = () => {
+    const config = Object.assign({
+      src: 'https://giscus.app/client.js',
+      'data-repo': 'iuxt/iuxt.github.io',
+      'data-repo-id': 'MDEwOlJlcG9zaXRvcnkzOTAwMjMzMzQ=',
+      'data-category-id': 'DIC_kwDOFz9Ips4B_jcP',
+      'data-mapping': 'pathname',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true
+    },null)
+
+    const ele = document.createElement('script')
+    for (let key in config) {
+      ele.setAttribute(key, config[key])
+    }
+    document.getElementById('giscus-wrap').appendChild(ele)
+  }
+
+  const changeGiscusTheme = theme => {
+    const sendMessage = message => {
+      const iframe = document.querySelector('iframe.giscus-frame')
+      if (!iframe) return
+      iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app')
+    }
+
+    sendMessage({
+      setConfig: {
+        theme: getGiscusTheme(theme)
+      }
+    });
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if ('Giscus' === 'Giscus' || !true) {
+    if (true) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment= loadGiscus
+  }
+})()</script></div><canvas class="fireworks" mobile="false"></canvas><script src="/pluginsSrc/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="/pluginsSrc/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

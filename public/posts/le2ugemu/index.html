@@ -1,0 +1,500 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>shell脚本条件判断与比较运算 | BLOG</title><meta name="author" content="wentao"><meta name="copyright" content="wentao"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="if 的基本语法:1234567if [ -f &#x2F;tmp ];then   echo &quot;是一个普通文件&quot;elif [ -d &#x2F;tmp ];then   echo &quot;是一个目录&quot;else   echo &quot;其他类型&quot;fi  文件&#x2F;目录 判断常用的    运算符 作用    -d 测试文件是否为目录   -e 测试文件是否存在   -">
+<meta property="og:type" content="article">
+<meta property="og:title" content="shell脚本条件判断与比较运算">
+<meta property="og:url" content="https://blog.vrzbq.com/posts/le2ugemu/">
+<meta property="og:site_name" content="BLOG">
+<meta property="og:description" content="if 的基本语法:1234567if [ -f &#x2F;tmp ];then   echo &quot;是一个普通文件&quot;elif [ -d &#x2F;tmp ];then   echo &quot;是一个目录&quot;else   echo &quot;其他类型&quot;fi  文件&#x2F;目录 判断常用的    运算符 作用    -d 测试文件是否为目录   -e 测试文件是否存在   -">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://static.zahui.fan/images/202211041307268.jpg">
+<meta property="article:published_time" content="2023-02-13T13:21:25.000Z">
+<meta property="article:modified_time" content="2024-01-11T10:24:31.081Z">
+<meta property="article:author" content="wentao">
+<meta property="article:tag" content="shell">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://static.zahui.fan/images/202211041307268.jpg"><link rel="shortcut icon" href="/img/bog.jpg"><link rel="canonical" href="https://blog.vrzbq.com/posts/le2ugemu/"><link rel="preconnect"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="/pluginsSrc/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?50b516d50102c8c9ac5f80529b81ca17";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-YN0WWZGVYN"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-YN0WWZGVYN');
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"此文章距离发布已经","messageNext":"天了，内容可能已经过时，请自行判断是否可用或联系博主更新。"},
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: '/pluginsSrc/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'shell脚本条件判断与比较运算',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-01-11 18:24:31'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/style.min.css" /><meta name="generator" content="Hexo 7.0.0"><link rel="alternate" href="/atom.xml" title="BLOG" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="/img/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">200</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">185</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header" style="background-image: url('https://static.zahui.fan/images/202211041307268.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="BLOG"><span class="site-name">BLOG</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa-brands fa-apple fa-bounce"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" rel="external nofollow noreferrer"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">shell脚本条件判断与比较运算</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-02-13T13:21:25.000Z" title="发表于 2023-02-13 21:21:25">2023-02-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-01-11T10:24:31.081Z" title="更新于 2024-01-11 18:24:31">2024-01-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/devops/">devops</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="shell脚本条件判断与比较运算"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="if-的基本语法"><a href="#if-的基本语法" class="headerlink" title="if 的基本语法:"></a>if 的基本语法:</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> [ -f /tmp ];<span class="keyword">then</span></span><br><span class="line">   <span class="built_in">echo</span> <span class="string">&quot;是一个普通文件&quot;</span></span><br><span class="line"><span class="keyword">elif</span> [ -d /tmp ];<span class="keyword">then</span></span><br><span class="line">   <span class="built_in">echo</span> <span class="string">&quot;是一个目录&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">   <span class="built_in">echo</span> <span class="string">&quot;其他类型&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="文件-目录-判断"><a href="#文件-目录-判断" class="headerlink" title="文件&#x2F;目录 判断"></a>文件&#x2F;目录 判断</h2><p>常用的</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-d</td>
+<td>测试文件是否为目录</td>
+</tr>
+<tr>
+<td>-e</td>
+<td>测试文件是否存在</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>判断是否为一般文件</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>测试当前用户是否有权限读取</td>
+</tr>
+<tr>
+<td>-w</td>
+<td>测试当前用户是否有权限写入</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>测试当前用户是否有权限执行</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>文件长度不为零</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[ -b FILE ]</td>
+<td>如果 FILE 存在且是一个块特殊文件则为真。</td>
+</tr>
+<tr>
+<td>[ -c FILE ]</td>
+<td>如果 FILE 存在且是一个字特殊文件则为真。</td>
+</tr>
+<tr>
+<td>[ -d DIR ]</td>
+<td>如果 FILE 存在且是一个目录则为真。</td>
+</tr>
+<tr>
+<td>[ -e FILE ]</td>
+<td>如果 FILE 存在则为真。</td>
+</tr>
+<tr>
+<td>[ -f FILE ]</td>
+<td>如果 FILE 存在且是一个普通文件则为真。</td>
+</tr>
+<tr>
+<td>[ -g FILE ]</td>
+<td>如果 FILE 存在且已经设置了SGID则为真。</td>
+</tr>
+<tr>
+<td>[ -k FILE ]</td>
+<td>如果 FILE 存在且已经设置了粘制位则为真。</td>
+</tr>
+<tr>
+<td>[ -p FILE ]</td>
+<td>如果 FILE 存在且是一个名字管道(F如果O)则为真。</td>
+</tr>
+<tr>
+<td>[ -r FILE ]</td>
+<td>如果 FILE 存在且是可读的则为真。</td>
+</tr>
+<tr>
+<td>[ -s FILE ]</td>
+<td>如果 FILE 存在且大小不为0则为真。</td>
+</tr>
+<tr>
+<td>[ -t FD ]</td>
+<td>如果文件描述符 FD 打开且指向一个终端则为真。</td>
+</tr>
+<tr>
+<td>[ -u FILE ]</td>
+<td>如果 FILE 存在且设置了SUID (set user ID)则为真。</td>
+</tr>
+<tr>
+<td>[ -w FILE ]</td>
+<td>如果 FILE存在且是可写的则为真。</td>
+</tr>
+<tr>
+<td>[ -x FILE ]</td>
+<td>如果 FILE 存在且是可执行的则为真。</td>
+</tr>
+<tr>
+<td>[ -O FILE ]</td>
+<td>如果 FILE 存在且属有效用户ID则为真。</td>
+</tr>
+<tr>
+<td>[ -G FILE ]</td>
+<td>如果 FILE 存在且属有效用户组则为真。</td>
+</tr>
+<tr>
+<td>[ -L FILE ]</td>
+<td>如果 FILE 存在且是一个符号连接则为真。</td>
+</tr>
+<tr>
+<td>[ -N FILE ]</td>
+<td>如果 FILE 存在 and has been mod如果ied since it was last read则为真。</td>
+</tr>
+<tr>
+<td>[ -S FILE ]</td>
+<td>如果 FILE 存在且是一个套接字则为真。</td>
+</tr>
+<tr>
+<td>[ FILE1 -nt FILE2 ]</td>
+<td>如果 FILE1 has been changed more recently than FILE2, or 如果 FILE1 exists and FILE2 does not则为真。</td>
+</tr>
+<tr>
+<td>[ FILE1 -ot FILE2 ]</td>
+<td>如果 FILE1 比 FILE2 要老, 或者 FILE2 存在且 FILE1 不存在则为真。</td>
+</tr>
+<tr>
+<td>[ FILE1 -ef FILE2 ]</td>
+<td>如果 FILE1 和 FILE2 指向相同的设备和节点号则为真。</td>
+</tr>
+</tbody></table>
+<h2 id="字符串判断"><a href="#字符串判断" class="headerlink" title="字符串判断"></a>字符串判断</h2><p>常用的</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x3D;</td>
+<td>判断字符串内容是否相同</td>
+</tr>
+<tr>
+<td>!&#x3D;</td>
+<td>判断字符串内容是否不同</td>
+</tr>
+<tr>
+<td>-z</td>
+<td>字符串长度为0，返回真</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>字符串长度不为0，返回真</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>[ -z STRING ]</td>
+<td>如果STRING的长度为零则为真 ，即判断是否为空，空即是真；</td>
+</tr>
+<tr>
+<td>[ -n STRING ]</td>
+<td>如果STRING的长度非零则为真 ，即判断是否为非空，非空即是真；</td>
+</tr>
+<tr>
+<td>[ STRING1 &#x3D; STRING2 ]</td>
+<td>如果两个字符串相同则为真 ；</td>
+</tr>
+<tr>
+<td>[ STRING1 !&#x3D; STRING2 ]</td>
+<td>如果字符串不相同则为真 ；</td>
+</tr>
+<tr>
+<td>[ STRING1 ]</td>
+<td>如果字符串不为空则为真,与-n类似</td>
+</tr>
+</tbody></table>
+<h2 id="数值判断"><a href="#数值判断" class="headerlink" title="数值判断"></a>数值判断</h2><p>常用的</p>
+<table>
+<thead>
+<tr>
+<th>运算符</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-eq</td>
+<td>是否等于</td>
+</tr>
+<tr>
+<td>-ne</td>
+<td>是否不等于</td>
+</tr>
+<tr>
+<td>-gt</td>
+<td>是否大于</td>
+</tr>
+<tr>
+<td>-lt</td>
+<td>是否小于</td>
+</tr>
+<tr>
+<td>-le</td>
+<td>是否小于或等于</td>
+</tr>
+<tr>
+<td>-ge</td>
+<td>是否大于或等于</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>INT1 -eq INT2</td>
+<td>INT1和INT2两数相等为真 ,&#x3D;</td>
+</tr>
+<tr>
+<td>INT1 -ne INT2</td>
+<td>INT1和INT2两数不等为真 ,&lt;&gt;</td>
+</tr>
+<tr>
+<td>INT1 -gt INT2</td>
+<td>INT1大于INT1为真 ,&gt;</td>
+</tr>
+<tr>
+<td>INT1 -ge INT2</td>
+<td>INT1大于等于INT2为真,&gt;&#x3D;</td>
+</tr>
+<tr>
+<td>INT1 -lt INT2</td>
+<td>INT1小于INT2为真 ,&lt;</td>
+</tr>
+<tr>
+<td>INT1 -le INT2</td>
+<td>INT1小于等于INT2为真,&lt;&#x3D;</td>
+</tr>
+</tbody></table>
+<h2 id="其他逻辑判断"><a href="#其他逻辑判断" class="headerlink" title="其他逻辑判断"></a>其他逻辑判断</h2><table>
+<thead>
+<tr>
+<th>选项</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-a</td>
+<td>与</td>
+</tr>
+<tr>
+<td>-o</td>
+<td>或</td>
+</tr>
+<tr>
+<td>!</td>
+<td>非</td>
+</tr>
+</tbody></table>
+<h2 id="和"><a href="#和" class="headerlink" title="|| 和 &amp;&amp;"></a>|| 和 &amp;&amp;</h2><blockquote>
+<p>|| 前面执行不通过才执行后面的，也就是或， &amp;&amp; 是与，前面执行通过会接着执行后面的</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[ -d /tmp/111 ] || &#123; <span class="built_in">mkdir</span> /tmp/111; <span class="built_in">cd</span> /tmp/111; <span class="built_in">pwd</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 三元判断</span></span><br><span class="line">[ -e .env.exampl ] &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;文件存在&quot;</span> || <span class="built_in">echo</span> <span class="string">&quot;文件不存在&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="模糊判断"><a href="#模糊判断" class="headerlink" title="模糊判断"></a>模糊判断</h3><p>判断字符串是否包含</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">NAMESPACE=xxxgrayxxx</span><br><span class="line"><span class="keyword">if</span> [[ <span class="variable">$NAMESPACE</span> =~ prod ]] || [[ <span class="variable">$NAMESPACE</span> =~ gray ]]</span><br><span class="line"><span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;是prod或gray&quot;</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">&quot;不重要的环境，随便造&quot;</span></span><br><span class="line"><span class="keyword">fi</span></span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://blog.vrzbq.com">wentao</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://blog.vrzbq.com/posts/le2ugemu/">https://blog.vrzbq.com/posts/le2ugemu/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow noreferrer" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://blog.vrzbq.com" target="_blank">BLOG</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/shell/">shell</a></div><div class="post_share"><div class="social-share" data-image="https://static.zahui.fan/images/202211041307268.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="/pluginsSrc/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="/pluginsSrc/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/le5lzctq/" title="使用image-syncer来实现容器镜像同步"><img class="cover" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/skeleton2.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">使用image-syncer来实现容器镜像同步</div></div></a></div><div class="next-post pull-right"><a href="/posts/ldsv2ssw/" title="利用Nginx的rewrite来实现自动跳转"><img class="cover" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/public/skeleton1.svg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">利用Nginx的rewrite来实现自动跳转</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/posts/78f9310c/" title="Bash检查当前用户是不是root"><img class="cover" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/images/202211041307268.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-04</div><div class="title">Bash检查当前用户是不是root</div></div></a></div><div><a href="/posts/b82d63c2/" title="编写安全健壮的shell脚本"><img class="cover" src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="https://static.zahui.fan/images/202211041307268.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-04-03</div><div class="title">编写安全健壮的shell脚本</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="giscus-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">wentao</div><div class="author-info__description">文涛的博客</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">200</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">185</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener external nofollow noreferrer" href="https://github.com/Mr-wentao"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/Mr-wentao/blog-hexo" rel="external nofollow noreferrer" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="/atom.xml" target="_blank" title="RSS"><i class="fa-solid fa-square-rss"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">此博客为我记录运维工作总结所用，供网友阅读参考，如有侵权，请通知我，我会核实后进行处理。
+</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#if-%E7%9A%84%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">if 的基本语法:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E4%BB%B6-%E7%9B%AE%E5%BD%95-%E5%88%A4%E6%96%AD"><span class="toc-number">2.</span> <span class="toc-text">文件&#x2F;目录 判断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%A4%E6%96%AD"><span class="toc-number">3.</span> <span class="toc-text">字符串判断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E5%80%BC%E5%88%A4%E6%96%AD"><span class="toc-number">4.</span> <span class="toc-text">数值判断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E9%80%BB%E8%BE%91%E5%88%A4%E6%96%AD"><span class="toc-number">5.</span> <span class="toc-text">其他逻辑判断</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%92%8C"><span class="toc-number">6.</span> <span class="toc-text">|| 和 &amp;&amp;</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E7%B3%8A%E5%88%A4%E6%96%AD"><span class="toc-number">6.1.</span> <span class="toc-text">模糊判断</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/a6ed320f/" title="腾讯云tke-ingress开启ingress域名访问日志">腾讯云tke-ingress开启ingress域名访问日志</a><time datetime="2024-01-08T08:57:21.802Z" title="发表于 2024-01-08 16:57:21">2024-01-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/49c855ea/" title="k8s配置ingress访问集群外部资源">k8s配置ingress访问集群外部资源</a><time datetime="2024-01-08T08:55:12.198Z" title="发表于 2024-01-08 16:55:12">2024-01-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/e53e29f0/" title="k8s常用操作命令">k8s常用操作命令</a><time datetime="2024-01-08T06:41:33.624Z" title="发表于 2024-01-08 14:41:33">2024-01-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/f8409f7f/" title="prometheus监控部署及常规组件">prometheus监控部署及常规组件</a><time datetime="2024-01-08T03:20:59.247Z" title="发表于 2024-01-08 11:20:59">2024-01-08</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/posts/lr0clio1/" title="获取Kubernetes的token">获取Kubernetes的token</a><time datetime="2024-01-05T08:02:08.000Z" title="发表于 2024-01-05 16:02:08">2024-01-05</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="footer_custom_text"><a target="_blank" rel="noopener external nofollow noreferrer" href='https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral'>
+  本网站由<img src= "https://static.zahui.fan/public/windmill.svg" data-lazy-src='https://static.zahui.fan/images/202210272253029.svg' alt='又拍云' width='70' height='28' style="vertical-align:bottom">
+  提供CDN加速/云存储服务
+</a>
+</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/pluginsSrc/@fancyapps/ui/dist/fancybox/fancybox.umd.js"></script><script src="/pluginsSrc/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(()=>{
+  const getGiscusTheme = theme => {
+    return theme === 'dark' ? 'dark' : 'light'
+  }
+
+  const loadGiscus = () => {
+    const config = Object.assign({
+      src: 'https://giscus.app/client.js',
+      'data-repo': 'iuxt/iuxt.github.io',
+      'data-repo-id': 'MDEwOlJlcG9zaXRvcnkzOTAwMjMzMzQ=',
+      'data-category-id': 'DIC_kwDOFz9Ips4B_jcP',
+      'data-mapping': 'pathname',
+      'data-theme': getGiscusTheme(document.documentElement.getAttribute('data-theme')),
+      'data-reactions-enabled': '1',
+      crossorigin: 'anonymous',
+      async: true
+    },null)
+
+    const ele = document.createElement('script')
+    for (let key in config) {
+      ele.setAttribute(key, config[key])
+    }
+    document.getElementById('giscus-wrap').appendChild(ele)
+  }
+
+  const changeGiscusTheme = theme => {
+    const sendMessage = message => {
+      const iframe = document.querySelector('iframe.giscus-frame')
+      if (!iframe) return
+      iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app')
+    }
+
+    sendMessage({
+      setConfig: {
+        theme: getGiscusTheme(theme)
+      }
+    });
+  }
+
+  btf.addGlobalFn('themeChange', changeGiscusTheme, 'giscus')
+
+  if ('Giscus' === 'Giscus' || !true) {
+    if (true) btf.loadComment(document.getElementById('giscus-wrap'), loadGiscus)
+    else loadGiscus()
+  } else {
+    window.loadOtherComment= loadGiscus
+  }
+})()</script></div><canvas class="fireworks" mobile="false"></canvas><script src="/pluginsSrc/butterfly-extsrc/dist/fireworks.min.js"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="/pluginsSrc/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>

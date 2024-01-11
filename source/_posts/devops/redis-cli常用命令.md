@@ -3,6 +3,7 @@ title: redis-cli常用命令
 tags: redis-cli常用命令
 categories:
   - devops
+abbrlink: 20e32d5b
 ---
 
 **redis登录**

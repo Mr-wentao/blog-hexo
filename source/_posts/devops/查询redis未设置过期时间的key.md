@@ -1,6 +1,9 @@
 ---
 title: 查询redis未设置过期时间的key
 tags: 查询redis未设置过期时间的key
+categories:
+  - devops
+abbrlink: 55aec82e
 ---
 
 **查询并导出redis中没有设置过期时间的key**

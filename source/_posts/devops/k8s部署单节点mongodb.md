@@ -1,9 +1,10 @@
 ---
 title: k8s部署单节点mongodb
-date: 2024-01-02 14:17:58
-tags:
 categories:
   - devops
+abbrlink: 894ed04d
+date: 2024-01-02 14:17:58
+tags:
 ---
 
 **根据yaml文件修改**

@@ -1,9 +1,10 @@
 ---
 title: ES开启安全认证
-date: 2024-01-02 14:17:58
-tags:
 categories:
   - devops
+abbrlink: 573776b5
+date: 2024-01-02 14:17:58
+tags:
 ---
 
 **elasticsearch开启安全认证步骤**

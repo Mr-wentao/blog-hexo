@@ -3,6 +3,7 @@ title: prometheus监控部署及常规组件
 tags: prometheus监控部署及常规组件
 categories:
   - devops
+abbrlink: f8409f7f
 ---
 
 **prometheus.yaml**
