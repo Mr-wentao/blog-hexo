@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 杂烩饭
-subtitle: '张理坤的博客 - 运维技术分享'
-description: '张理坤的个人技术博客, 致力于分享运维开发等技术经验, 由系统运维、脚本编程、devops等分类组成, 涵盖了Docker、k8s、Python、Linux、Prometheus、ElasticSearch、虚拟化等内容。'
+title: BLOG
+subtitle: 'wwt的博客 - 运维技术分享'
+description: '致力于分享运维开发等技术经验, 由系统运维、脚本编程、devops等分类组成, 涵盖了Docker、k8s、Python、Linux、Prometheus、ElasticSearch、虚拟化等内容。'
 keywords: "Kubernetes,Prometheus,ElasticSearch,OPS,DevOps,运维,Linux,云原生"
-author: 张理坤
+author: wentao
 language: zh-CN
 timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://zahui.fan
+url: https://blog.vrzbq.com
 permalink: posts/:abbrlink/
 permalink_defaults:
 pretty_urls:
