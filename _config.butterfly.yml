@@ -61,14 +61,14 @@ favicon: https://static.zahui.fan/public/boob.svg
 
 # Avatar (頭像)
 avatar:
-  img: https://static.zahui.fan/public/dog.svg
+  img: '/img/avatar.png'
   effect: false
 
 # Disable all banner image
 disable_top_img: false
 
 # 首页大图
-index_img: 'https://static.zahui.fan/public/Lollipop.svg'
+index_img: '/img/top.jpeg'
 
 # 这个是标题等距离顶部的比例
 index_site_info_top: 30%
