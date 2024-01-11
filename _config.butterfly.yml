@@ -5,11 +5,6 @@ menu:
   归档: /archives/ || fas fa-archive
   标签: /tags/ || fas fa-tags
   分类: /categories/ || fas fa-folder-open
-  工具||fas fa-list:
-    小游戏: https://iuxt.gitee.io/ || fas fa-gamepad
-    Aria2: https://aria2.babudiu.com/ || fas fa-download
-    网盘: https://file.babudiu.com/ || fa-solid fa-file
-  林克: /link/ || fa-solid fa-link
   关于: /about/ || fa-brands fa-apple fa-bounce
 
 nav:
@@ -242,7 +237,7 @@ aside:
     category: true
   card_author:
     enable: true
-    description: "张理坤的博客"
+    description: "文涛的博客"
     button:
       enable: true
       icon: fab fa-github
