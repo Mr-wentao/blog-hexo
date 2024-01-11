@@ -159,21 +159,21 @@ sharejs:
   enable: true
   sites: facebook,twitter,wechat,weibo,qq
 
-comments:
-  use: Giscus # Valine,Disqus
-  text: true # Display the comment name next to the button
-  lazyload: true
-  count: false # Display comment count in post's top_img
-  card_post_count: false # Display comment count in Home Page
+# comments:
+#   use: Giscus # Valine,Disqus
+#   text: true # Display the comment name next to the button
+#   lazyload: true
+#   count: false # Display comment count in post's top_img
+#   card_post_count: false # Display comment count in Home Page
 
-giscus:
-  repo: iuxt/iuxt.github.io
-  repo_id: MDEwOlJlcG9zaXRvcnkzOTAwMjMzMzQ=
-  category_id: DIC_kwDOFz9Ips4B_jcP
-  theme:
-    light: light
-    dark: dark
-  option:
+# giscus:
+#   repo: iuxt/iuxt.github.io
+#   repo_id: MDEwOlJlcG9zaXRvcnkzOTAwMjMzMzQ=
+#   category_id: DIC_kwDOFz9Ips4B_jcP
+#   theme:
+#     light: light
+#     dark: dark
+#   option:
 
 # Footer Settings
 # --------------------------------------
@@ -232,7 +232,7 @@ aside:
     category: true
   card_author:
     enable: true
-    description: "文涛的博客"
+    description: "阿飞的博客"
     button:
       enable: true
       icon: fab fa-github
