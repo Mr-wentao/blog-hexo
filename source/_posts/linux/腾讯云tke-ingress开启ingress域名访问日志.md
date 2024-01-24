@@ -2,7 +2,7 @@
 title: 腾讯云tke-ingress开启ingress域名访问日志
 tags: 腾讯云tke-ingress开启ingress域名访问日志
 categories:
-  - devops
+  - linux
 abbrlink: a6ed320f
 ---
 

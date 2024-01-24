@@ -2,7 +2,7 @@
 title: centos常用配置
 abbrlink: 6cc59126
 categories:
-  - devops
+  - linux
 tags:
   - Linux
   - 配置记录

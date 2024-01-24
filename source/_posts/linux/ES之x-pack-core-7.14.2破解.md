@@ -1,7 +1,7 @@
 ---
 title: ES之x-pack-core-7.14.2破解
 categories:
-  - devops
+  - linux
 abbrlink: e544f05a
 date: 2024-01-02 11:58:06
 ---

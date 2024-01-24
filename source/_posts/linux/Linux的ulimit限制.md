@@ -1,7 +1,7 @@
 ---
 title: Linux的ulimit限制
 categories:
-  - devops
+  - linux
 tags:
   - linux
   - 配置记录

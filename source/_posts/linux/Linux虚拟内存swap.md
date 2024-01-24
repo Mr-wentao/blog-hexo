@@ -3,7 +3,7 @@ title: Linux虚拟内存swap
 abbrlink: '25938561'
 cover: 'https://static.zahui.fan/images/202211041307268.jpg'
 categories:
-  - devops
+  - linux
 tags:
   - Linux
 date: 2021-05-27 20:52:22

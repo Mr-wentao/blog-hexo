@@ -1,7 +1,7 @@
 ---
 title: ES开启安全认证
 categories:
-  - devops
+  - linux
 abbrlink: 573776b5
 date: 2024-01-02 14:17:58
 tags:

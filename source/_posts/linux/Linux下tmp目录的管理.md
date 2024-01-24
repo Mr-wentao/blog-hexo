@@ -1,7 +1,7 @@
 ---
 title: Linux下tmp目录的管理
 categories:
-  - devops
+  - linux
 tags:
   - ''
 abbrlink: 23ada041

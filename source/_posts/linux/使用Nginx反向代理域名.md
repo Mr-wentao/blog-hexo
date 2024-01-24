@@ -1,7 +1,7 @@
 ---
 title: 使用Nginx反向代理域名
 categories:
-  - devops
+  - linux
 tags:
   - nginx
   - Nginx

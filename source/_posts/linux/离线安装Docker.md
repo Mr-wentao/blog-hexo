@@ -1,7 +1,7 @@
 ---
 title: 离线安装Docker
 categories:
-  - devops
+  - linux
 tags:
   - Docker
 abbrlink: b4ed6a46

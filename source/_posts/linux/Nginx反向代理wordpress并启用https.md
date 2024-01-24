@@ -2,7 +2,7 @@
 title: Nginx反向代理wordpress并启用https
 abbrlink: 990b6b62
 categories:
-  - devops
+  - linux
 tags:
   - Proxy
   - Nginx

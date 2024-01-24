@@ -2,7 +2,7 @@
 title: Iptables进行持久化配置，重启不丢失
 abbrlink: d8f4121a
 categories:
-  - devops
+  - linux
 tags:
   - iptables
   - 网络

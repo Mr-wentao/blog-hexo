@@ -1,7 +1,7 @@
 ---
 title: Linux时间处理与格式化
 categories:
-  - devops
+  - linux
 tags:
   - time
   - 时间

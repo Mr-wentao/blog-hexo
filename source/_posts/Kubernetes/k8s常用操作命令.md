@@ -2,7 +2,7 @@
 title: k8s常用操作命令
 tags: k8s常用操作命令
 categories:
-  - devops
+  - Kubernetes
 abbrlink: e53e29f0
 ---
 

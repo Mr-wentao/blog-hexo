@@ -1,7 +1,7 @@
 ---
 title: Fail2ban配合Docker使用解决暴力破解
 categories:
-  - devops
+  - linux
 tags:
   - fail2ban
   - cc攻击

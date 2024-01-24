@@ -3,7 +3,7 @@ title: Linux内核参数
 abbrlink: 1b957a56
 cover: 'https://static.zahui.fan/images/202211041307268.jpg'
 categories:
-  - devops
+  - linux
 tags:
   - Linux
   - Kernel

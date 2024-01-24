@@ -2,7 +2,7 @@
 title: 查询redis未设置过期时间的key
 tags: 查询redis未设置过期时间的key
 categories:
-  - devops
+  - 数据库
 abbrlink: 55aec82e
 ---
 

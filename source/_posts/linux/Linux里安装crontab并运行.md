@@ -1,7 +1,7 @@
 ---
 title: Linux里安装crontab并运行
 categories:
-  - devops
+  - linux
 tags:
   - Crontab
   - Linux

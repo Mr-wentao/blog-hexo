@@ -1,7 +1,7 @@
 ---
 title: 使用Fail2ban抵御暴力破解和cc攻击
 categories:
-  - devops
+  - linux
 tags:
   - fail2ban
   - cc攻击

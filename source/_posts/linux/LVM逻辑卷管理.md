@@ -2,7 +2,7 @@
 title: LVM逻辑卷管理
 abbrlink: f4ea28c3
 categories:
-  - devops
+  - linux
 tags:
   - Linux
   - 配置记录

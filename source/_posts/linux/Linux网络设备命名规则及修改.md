@@ -3,7 +3,7 @@ title: Linux网络设备命名规则及修改
 abbrlink: 69bcc649
 cover: 'https://static.zahui.fan/images/202211041307268.jpg'
 categories:
-  - devops
+  - linux
 tags:
   - Linux
   - Network

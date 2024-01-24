@@ -2,7 +2,7 @@
 title: Linux Shell 自动补全
 abbrlink: 7ce4e1fc
 categories:
-  - devops
+  - linux
 tags:
   - kubectl
 date: 2022-02-27 18:17:43

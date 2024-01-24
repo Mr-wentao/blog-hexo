@@ -2,7 +2,7 @@
 title: Linux平台文本编辑器vim
 abbrlink: 280100fb
 categories:
-  - devops
+  - linux
 tags:
   - Linux
 date: 2021-04-21 15:54:57

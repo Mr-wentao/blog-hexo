@@ -3,7 +3,7 @@ title: Shell指定分隔符
 abbrlink: e93bd813
 cover: 'https://static.zahui.fan/images/202211041307268.jpg'
 categories:
-  - devops
+  - linux
 tags:
   - Shell
   - Script

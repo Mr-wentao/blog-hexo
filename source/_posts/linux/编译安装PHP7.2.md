@@ -3,7 +3,7 @@ title: 编译安装PHP7.2
 abbrlink: a03938f2
 cover: 'https://static.zahui.fan/images/202211012253797.png'
 categories:
-  - devops
+  - linux
 tags:
   - 编译
   - PHP

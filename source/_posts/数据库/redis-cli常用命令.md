@@ -2,7 +2,7 @@
 title: redis-cli常用命令
 tags: redis-cli常用命令
 categories:
-  - devops
+  - 数据库
 abbrlink: 20e32d5b
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 备份Linux操作系统
 categories:
-  - devops
+  - linux
 tags:
   - 备份还原
   - Linux

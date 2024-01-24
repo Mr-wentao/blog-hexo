@@ -2,7 +2,7 @@
 title: Nginx之server_name匹配和listen匹配
 abbrlink: 09a38e37
 categories:
-  - devops
+  - linux
 tags:
   - Nginx
   - 配置文件

@@ -2,7 +2,7 @@
 title: Linux使用nologin用户执行命令
 abbrlink: 2c88f7f6
 categories:
-  - devops
+  - linux
 tags:
   - Linux
   - Shell

@@ -3,7 +3,7 @@ title: Linux常用命令之awk
 abbrlink: c4a2fe4
 cover: 'https://static.zahui.fan/images/202211041307268.jpg'
 categories:
-  - devops
+  - linux
 tags:
   - Linux
   - Command

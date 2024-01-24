@@ -2,7 +2,7 @@
 title: 内核级负载均衡 LVS DR模式 部署记录
 abbrlink: 5fdc91d7
 categories:
-  - devops
+  - linux
 tags:
   - LoadBalance
   - 配置记录

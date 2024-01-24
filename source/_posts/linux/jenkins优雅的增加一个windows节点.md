@@ -1,7 +1,7 @@
 ---
 title: jenkins优雅的增加一个windows节点
 categories:
-  - devops
+  - linux
 tags:
   - jenkins
   - windows

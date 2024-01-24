@@ -1,7 +1,7 @@
 ---
 title: k8s部署单节点mongodb
 categories:
-  - devops
+  - Kubernetes
 abbrlink: 894ed04d
 date: 2024-01-02 14:17:58
 tags:

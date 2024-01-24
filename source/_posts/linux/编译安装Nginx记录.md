@@ -2,7 +2,7 @@
 title: 编译安装Nginx记录
 abbrlink: d90d2aa0
 categories:
-  - devops
+  - linux
 tags:
   - Nginx
   - build

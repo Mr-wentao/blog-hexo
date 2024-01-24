@@ -2,7 +2,7 @@
 title: k8s配置ingress访问集群外部资源
 tags: k8s配置ingress访问集群外部资源
 categories:
-  - devops
+  - Kubernetes
 abbrlink: 49c855ea
 ---
 

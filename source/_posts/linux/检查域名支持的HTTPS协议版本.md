@@ -1,7 +1,7 @@
 ---
 title: 检查域名支持的HTTPS协议版本
 categories:
-  - devops
+  - linux
 tags:
   - 加密
   - SSL

@@ -2,7 +2,7 @@
 title: 使用iptables做4层端口转发
 abbrlink: 5e8ed38b
 categories:
-  - devops
+  - linux
 tags:
   - iptables
   - 网络

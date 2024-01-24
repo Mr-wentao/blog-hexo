@@ -2,7 +2,7 @@
 title: prometheus监控部署及常规组件
 tags: prometheus监控部署及常规组件
 categories:
-  - devops
+  - 监控
 abbrlink: f8409f7f
 ---
 

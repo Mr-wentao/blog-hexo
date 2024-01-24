@@ -1,7 +1,7 @@
 ---
 title: gpg使用记录
 categories:
-  - devops
+  - linux
 tags:
   - gpg
   - 加密

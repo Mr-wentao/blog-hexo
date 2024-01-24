@@ -3,7 +3,7 @@ title: ubuntu常用配置
 abbrlink: 27a660e
 cover: 'https://static.zahui.fan/images/202308242246912.png'
 categories:
-  - devops
+  - linux
 tags:
   - Linux
   - 配置记录

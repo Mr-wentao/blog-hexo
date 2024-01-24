@@ -3,7 +3,7 @@ title: Linux常用命令之sed
 abbrlink: 83cbdb25
 cover: 'https://static.zahui.fan/images/202211041307268.jpg'
 categories:
-  - devops
+  - linux
 tags:
   - Linux
   - Command

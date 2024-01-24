@@ -2,7 +2,7 @@
 title: 使用keepalived完成LVS高可用
 abbrlink: 675d47a9
 categories:
-  - devops
+  - linux
 tags:
   - LoadBalance
   - 配置记录

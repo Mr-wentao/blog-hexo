@@ -2,7 +2,7 @@
 title: 使用Keepalived来实现Nginx高可用
 abbrlink: 0cebb8ae
 categories:
-  - devops
+  - linux
 tags:
   - keepalived
   - nginx

@@ -3,7 +3,7 @@ title: Linux设置默认的文本编辑器
 abbrlink: b8c29b0f
 cover: 'https://static.zahui.fan/images/202211041307268.jpg'
 categories:
-  - devops
+  - linux
 tags:
   - 配置记录
 date: 2022-10-04 22:36:53

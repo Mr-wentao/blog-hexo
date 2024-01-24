@@ -1,7 +1,7 @@
 ---
 title: Jenkins升级插件引发的血案
 categories:
-  - devops
+  - linux
 tags:
   - jenkins
   - 升级版本
