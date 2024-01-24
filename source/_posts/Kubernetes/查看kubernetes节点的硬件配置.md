@@ -5,7 +5,6 @@ categories:
 tags:
   - k8s
   - 常用操作
-abbrlink: lo57b8gx
 cover: 'https://static.zahui.fan/images/202211212221065.svg'
 date: 2023-10-25 11:33:54
 ---
