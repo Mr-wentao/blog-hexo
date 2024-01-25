@@ -6,6 +6,7 @@ tags:
   - k8s
   - 常用操作
 cover: 'https://static.zahui.fan/images/202211212221065.svg'
+abbrlink: 787ab20b
 date: 2023-10-25 11:33:54
 ---
 

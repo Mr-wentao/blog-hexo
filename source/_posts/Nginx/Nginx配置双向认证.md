@@ -2,7 +2,7 @@
 title: Nginx配置双向认证
 abbrlink: b78a00fa
 categories:
-  - linux
+  - Nginx
 tags:
   - 配置记录
   - SSL

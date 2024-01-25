@@ -1,7 +1,7 @@
 ---
 title: 编译安装Redis记录
 categories:
-  - linux
+  - 数据库
 tags:
   - 记录
   - 编译
