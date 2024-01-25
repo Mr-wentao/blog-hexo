@@ -7,7 +7,7 @@ tags:
   - monitor
   - 配置记录
   - prometheus
-date: 2022-06-17 04:02:36
+date: 2022-06-17 04:02:37
 ---
 
 victoriametrics原生支持水平扩展，并且大部分兼容Prometheus语法，官方文档地址：<https://docs.victoriametrics.com/>
@@ -16,9 +16,9 @@ victoriametrics原生支持水平扩展，并且大部分兼容Prometheus语法�
 
 ![victoriametrics集群架构](https://static.zahui.fan/images/20220617162704.png)
 
-我公司用到的集群架构
+公司用到的集群架构
 
-![我公司用到的集群](https://static.zahui.fan/images/202206182239511.png)
+![公司用到的集群](https://static.zahui.fan/images/202206182239511.png)
 
 目前用到3台机器
 
