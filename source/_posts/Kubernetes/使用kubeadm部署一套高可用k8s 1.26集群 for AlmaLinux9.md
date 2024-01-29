@@ -120,6 +120,17 @@ containerd config default | sudo tee /etc/containerd/config.toml
    SystemdCgroup = true
 ```
 
+配置registry.mirrors为阿里云镜像
+
+```bash
+[plugins."io.containerd.grpc.v1.cri".registry.mirrors]
+  [plugins."io.containerd.grpc.v1.cri".registry.mirrors."docker.io"]      
+    endpoint = ["https://bqr1dr1n.mirror.aliyuncs.com"]      
+  [plugins."io.containerd.grpc.v1.cri".registry.mirrors."k8s.gcr.io"]      
+    endpoint = ["https://registry.aliyuncs.com/k8sxio"] 
+
+```
+
 ```bash
 sudo systemctl enable containerd
 sudo systemctl restart containerd
@@ -233,6 +244,11 @@ server {
 ## 创建集群
 
 ### kubeadm init
+
+创建初始化kubeadm文件
+```bash
+kubeadm config print init-defaults > kubeadm-config.yaml
+```
 
 在master1上执行
 
