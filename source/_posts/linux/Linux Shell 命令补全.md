@@ -10,7 +10,7 @@ date: 2022-02-27 18:17:43
 kubectl操作k8s集群，如何自动补全pod、service名字?
 kubectl的命令补全主要依赖于bash自动补全。
 ```
-##### 用户层级K8s命令自动补全
+### 用户层级K8s命令自动补全
 ```bash
 yum install -y bash-completion
 source /usr/share/bash-completion/bash_completion
@@ -18,7 +18,7 @@ source <(kubectl completion bash)
 echo "source <(kubectl completion bash)" >> ~/.bashrc
 ```
 
-##### 系统层级开启bash_completion
+### 系统层级开启bash_completion
 
 把`/etc/bash.bashrc`如下几行的注释取消
 
@@ -39,7 +39,7 @@ bash-completion 负责导入 `/etc/bash_completion.d` 目录中的所有补全�
 kubectl completion bash | sudo tee /etc/bash_completion.d/kubectl > /dev/null
 ```
 
-##### 关联kubectl别名
+### 关联kubectl别名
 
 如果 kubectl 有关联的别名，你可以扩展 shell 补全来适配此别名：
 
@@ -48,7 +48,7 @@ echo 'alias k=kubectl' >>~/.bashrc
 echo 'complete -F __start_kubectl k' >>~/.bashrc
 ```
 
-##### ZSH自动补全
+### ZSH自动补全
 
 kubectl 通过命令 kubectl completion zsh 生成 Zsh 自动补全脚本。 在 shell 中导入（Sourcing）该自动补全脚本，将启动 kubectl 自动补全功能。
 
