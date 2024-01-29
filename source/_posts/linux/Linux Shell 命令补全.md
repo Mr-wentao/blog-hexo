@@ -10,7 +10,7 @@ date: 2022-02-27 18:17:43
 kubectl操作k8s集群，如何自动补全pod、service名字?
 kubectl的命令补全主要依赖于bash自动补全。
 ```
-##### 用户层级Bash自动补全
+##### 用户层级K8s命令自动补全
 ```bash
 yum install -y bash-completion
 source /usr/share/bash-completion/bash_completion
