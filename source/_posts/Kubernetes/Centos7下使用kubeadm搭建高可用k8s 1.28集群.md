@@ -163,7 +163,7 @@ runc 使用 systemd cgroup 驱动
    SystemdCgroup = true
 ```
 
-修改sandbox_image镜像 根据安装k8s版本拉取的镜像版本来修改，此处不修改的话会造成节点运行异常
+修改sandbox_image镜像 根据安装k8s版本拉取的已有镜像版本来修改
 ```bash
 sandbox_image = "registry.aliyuncs.com/google_containers/pause:3.9"
 ```
