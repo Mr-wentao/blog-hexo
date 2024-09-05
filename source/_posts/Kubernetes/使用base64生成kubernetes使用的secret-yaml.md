@@ -15,7 +15,7 @@ date: 2022-11-04 15:47:52
 使用base64加工一下:
 
 ```bash
-base64 /mnt/c/Users/iuxt/Desktop/lexus.ald.ingeek.com_nginx/lexus.ald.ingeek.com_bundle.crt -w 0
+base64 /mnt/c/Users/iuxt/Desktop/lexus.ald.vrzbq.com_nginx/lexus.ald.vrzbq.com_bundle.crt -w 0
 ```
 
 > -w 0 的意思是不换行, 默认是76个字符换行.

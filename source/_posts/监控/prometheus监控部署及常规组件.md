@@ -72,7 +72,7 @@ spec:
     spec:
       serviceAccountName: prometheus
       containers:
-      - image: harbor.ingeek.com/base/prometheus:v2.32.1
+      - image: harbor.vrzbq.com/base/prometheus:v2.32.1
         name: prometheus
         command:
         - "/bin/prometheus"
@@ -918,7 +918,7 @@ spec:
         - --kubelet-use-node-status-port
         - --metric-resolution=15s
         - --kubelet-insecure-tls
-        image: harbor.ingeek.com/base/metrics-server:v0.6.4
+        image: harbor.vrzbq.com/base/metrics-server:v0.6.4
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3

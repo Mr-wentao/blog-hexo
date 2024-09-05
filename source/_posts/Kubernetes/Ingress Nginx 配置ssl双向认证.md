@@ -126,5 +126,5 @@ spec:
 
 ```bash
 # 自签server证书也可以增加 --cacert ca.crt 参数指定ca证书，客户端也是信任的
-curl --cert ./client.crt --key ./client.key https://uat-bmw.ingeek.com/actuator/info -k
+curl --cert ./client.crt --key ./client.key https://test.abc.com/
 ```

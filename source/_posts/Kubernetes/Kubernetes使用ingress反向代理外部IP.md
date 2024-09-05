@@ -65,7 +65,7 @@ metadata:
       }
 spec:
   rules:
-  - host: kibana.ingeek.com
+  - host: kibana.vrzbq.com
     http:
       paths:
       - backend:

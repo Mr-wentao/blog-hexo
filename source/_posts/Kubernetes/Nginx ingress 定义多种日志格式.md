@@ -86,10 +86,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - test-wiggler-operation.ingeek.com
+    - test-wiggler-operation.vrzbq.com
     secretName: ingeek-com
   rules:
-  - host: test-wiggler-operation.ingeek.com
+  - host: test-wiggler-operation.vrzbq.com
     http:
       paths:
       - backend:

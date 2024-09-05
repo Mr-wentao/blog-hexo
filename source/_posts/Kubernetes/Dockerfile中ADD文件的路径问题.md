@@ -28,7 +28,7 @@ date: 2023-09-22 16:39:31
 `Dockerfile`文件内容如下:
 
 ```dockerfile
-FROM harbor.ingeek.com/base/node:14.20.1-buster
+FROM harbor.vrzbq.com/base/node:14.20.1-buster
 ADD * /code/
 WORKDIR /code
 ```
@@ -50,7 +50,7 @@ root@cb7543054ef2:/code#
 会发现, 本来3这个文件应该是在2这个文件夹内的, 现在统一都跑到了上级目录了, 文件路径完全变了. 自然无法启动. 可以做如下修改:
 
 ```dockerfile
-FROM harbor.ingeek.com/base/node:14.20.1-buster
+FROM harbor.vrzbq.com/base/node:14.20.1-buster
 ADD ./ /code/
 WORKDIR /code
 ```

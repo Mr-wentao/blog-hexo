@@ -118,7 +118,7 @@ filebeat.inputs:
 原始日志：
 
 ```json
-{"@timestamp": "2022-03-15T14:15:14+08:00","server_addr":"192.168.13.120","remote_addr":"10.200.4.70","scheme":"https","request_method":"POST","request_uri": "/ingeek-analysis/apis/v3/collect","request_length": "25545","uri": "/ingeek-analysis/apis/v3/collect","request_time":0.004,"body_bytes_sent":833,"bytes_sent":1072,"status":"200","upstream_host":"172.20.17.40:8084","domain":"gemalto-tam-dk.ingeek.com","http_referer":"-","http_user_agent":"-","http_app_id":"3bdd8886a6261935","x_forwarded":"-","up_r_time":"0.003","up_status":"200","os_plant":"android","os_version":"11","app_version":"4.0.4","app_build":"97","guid":"b1d05ee5-b45a-40ef-92de-43008ee5eccb","resolution_ratio":"1080*2193","ip":"fe80::8070:92ff:fe99:902a%dummy0","imsi":"b1d05ee5-b45a-40ef-92de-43008ee5eccb","listen_port":"443"}
+{"@timestamp": "2022-03-15T14:15:14+08:00","server_addr":"192.168.13.120","remote_addr":"10.200.4.70","scheme":"https","request_method":"POST","request_uri": "/ingeek-analysis/apis/v3/collect","request_length": "25545","uri": "/ingeek-analysis/apis/v3/collect","request_time":0.004,"body_bytes_sent":833,"bytes_sent":1072,"status":"200","upstream_host":"172.20.17.40:8084","domain":"gemalto-tam-dk.vrzbq.com","http_referer":"-","http_user_agent":"-","http_app_id":"3bdd8886a6261935","x_forwarded":"-","up_r_time":"0.003","up_status":"200","os_plant":"android","os_version":"11","app_version":"4.0.4","app_build":"97","guid":"b1d05ee5-b45a-40ef-92de-43008ee5eccb","resolution_ratio":"1080*2193","ip":"fe80::8070:92ff:fe99:902a%dummy0","imsi":"b1d05ee5-b45a-40ef-92de-43008ee5eccb","listen_port":"443"}
 ```
 
 ### 某一行包含xx就丢弃

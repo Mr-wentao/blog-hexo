@@ -34,7 +34,7 @@ pipeline {
     stages {
         stage('Hello') {
             steps {
-                git branch: "${BRANCH}".split('/')[-1], credentialsId: 'test', url: 'https://gitlab.ingeek.com/devops/auppus_wfe.git'
+                git branch: "${BRANCH}".split('/')[-1], credentialsId: 'test', url: 'https://gitlab.vrzbq.com/devops/auppus_wfe.git'
                 sh 'ls -al'
                 sh 'git log'
             }

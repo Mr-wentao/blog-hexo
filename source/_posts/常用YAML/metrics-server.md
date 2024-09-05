@@ -151,7 +151,7 @@ spec:
         - --kubelet-use-node-status-port
         - --metric-resolution=15s
         - --kubelet-insecure-tls
-        image: harbor.ingeek.com/base/metrics-server:v0.6.4
+        image: harbor.vrzbq.com/base/metrics-server:v0.6.4
         imagePullPolicy: IfNotPresent
         livenessProbe:
           failureThreshold: 3
