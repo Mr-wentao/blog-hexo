@@ -23,7 +23,7 @@ date: 2024-08-28 14:40:02
 openssl ecparam -out CA.key -name prime256v1 -genkey
  
 # 生成证书CSR请求
-openssl req -subj "/O=Ingeek Inc./CN=Ingeek Root CA" -new -key CA.key -out CA.csr
+openssl req -subj "/O=TEST Inc./CN=TEST Root CA" -new -key CA.key -out CA.csr
  
 # 用根私钥签名CSR请求，生成自签名公钥证书
 openssl x509 -req -days 3650 -in CA.csr -signkey CA.key -sha256 -extfile openssl.conf -extensions v3_ca -out CA.crt
@@ -35,7 +35,7 @@ openssl x509 -req -days 3650 -in CA.csr -signkey CA.key -sha256 -extfile openssl
 openssl ecparam -out 2CA.key -name prime256v1 -genkey
  
 # 生成证书CSR请求
-openssl req -subj "/O=Ingeek Inc./CN=Ingeek Certification Authority CN-D" -new -key 2CA.key -out 2CA.csr
+openssl req -subj "/O=TEST Inc./CN=TEST Certification Authority CN-D" -new -key 2CA.key -out 2CA.csr
  
 # 用上述根证书签发次级CA证书
 openssl x509 -req -days 3650 -in 2CA.csr -CA CA.crt -CAkey CA.key -sha256 -CAcreateserial -extfile openssl.conf -extensions v3_ca -out 2CA.crt
@@ -49,7 +49,7 @@ openssl pkcs12 -export -clcerts -in 2CA.crt -inkey 2CA.key -out 2CA.p12
 openssl ecparam -out client.key -name prime256v1 -genkey
  
 # 生成CSR
-openssl req -subj "/O=Ingeek Inc./CN=Ingeek Certification Authority CN-E" -new -key client.key -config openssl.conf -extensions v3_req -out client.csr
+openssl req -subj "/O=TEST Inc./CN=TEST Certification Authority CN-E" -new -key client.key -config openssl.conf -extensions v3_req -out client.csr
  
 # 用次级CA为示例公钥签发证书，注意这里的扩展使用的是v3_req而不是v3_ca
 openssl x509 -req -days 3650 -in client.csr -CA 2CA.crt -CAkey 2CA.key -sha256 -set_serial 03 -extfile openssl.conf -extensions v3_req -out client.crt
