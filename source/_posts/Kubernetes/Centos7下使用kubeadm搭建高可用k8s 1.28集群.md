@@ -386,7 +386,7 @@ kubeadm token create --print-join-command
 1. 生成证书, 记录`certificate key`
 
     ```bash
-    kubeadm init phase upload-certs --upload-certs
+    kubeadm init phase upload-certs --upload-cert
     ```
 
 2. 获取加入命令
