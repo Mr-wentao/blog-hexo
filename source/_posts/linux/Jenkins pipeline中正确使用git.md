@@ -19,7 +19,7 @@ date: 2023-09-07 14:47:08
 在 系统管理 -- 凭据 -- 系统 -- 全局凭据 里面增加一个新的凭据
 
 
-![凭据](https://static.zahui.fan/images/202309071447808.png)
+![凭据](https://s3.babudiu.com/iuxt//images/202309071447808.png)
 成功后记录一下ID
 
 ## 编写流水线
@@ -45,4 +45,4 @@ pipeline {
 ```
 branch不支持origin/master这种格式, 所以需要用split处理一下
 ## 如何生成流水线
-![](https://static.zahui.fan/images/202309071527237.png)
+![](https://s3.babudiu.com/iuxt//images/202309071527237.png)

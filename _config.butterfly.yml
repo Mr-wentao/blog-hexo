@@ -82,7 +82,7 @@ cover:
   position: left
   # When cover is not set, the default cover is displayed (當沒有設置cover時，默認的封面顯示)
   default_cover:
-    - 'https://static.zahui.fan/public/skeleton1.svg'
+    - 'https://s3.babudiu.com/iuxt//public/skeleton1.svg'
 
 # Replace Broken Images (替換無法顯示的圖片)
 error_img:
@@ -93,7 +93,7 @@ error_img:
 error_404:
   enable: true
   subtitle: 'Page Not Found 页面没有找到'
-  background: https://static.zahui.fan/images/202210272208603.webp
+  background: https://s3.babudiu.com/iuxt//images/202210272208603.webp
 
 post_meta:
   page: # Home Page
@@ -183,7 +183,7 @@ footer:
     since: 2020
   custom_text: |
     <a href='https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral'>
-      本网站由<img src='https://static.zahui.fan/images/202210272253029.svg' alt='又拍云' width='70' height='28' style="vertical-align:bottom">
+      本网站由<img src='https://s3.babudiu.com/iuxt//images/202210272253029.svg' alt='又拍云' width='70' height='28' style="vertical-align:bottom">
       提供CDN加速/云存储服务
     </a>
   copyright: false # Copyright of theme and framework
@@ -295,7 +295,7 @@ instantpage: false
 lazyload:
   enable: true
   field: site # site/post
-  placeholder: https://static.zahui.fan/public/windmill.svg
+  placeholder: https://s3.babudiu.com/iuxt//public/windmill.svg
   blur: false
 
 Open_Graph_meta:
@@ -330,7 +330,7 @@ mask:
 inject:
   head:
     - <link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/style.min.css" />
-    # - <link rel="stylesheet" href="https://static.zahui.fan/libs/lxgw-wenkai-screen-webfont/1.7.0/style.min.css" />
+    # - <link rel="stylesheet" href="https://s3.babudiu.com/iuxt//libs/lxgw-wenkai-screen-webfont/1.7.0/style.min.css" />
   bottom:
     # - <script src="xxxx"></script>
 

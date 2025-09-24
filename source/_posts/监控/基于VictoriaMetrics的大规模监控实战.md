@@ -14,11 +14,11 @@ victoriametrics原生支持水平扩展，并且大部分兼容Prometheus语法�
 
 这个是victoriametrics官方的集群架构
 
-![victoriametrics集群架构](https://static.zahui.fan/images/20220617162704.png)
+![victoriametrics集群架构](https://s3.babudiu.com/iuxt//images/20220617162704.png)
 
 公司用到的集群架构
 
-![公司用到的集群](https://static.zahui.fan/images/202206182239511.png)
+![公司用到的集群](https://s3.babudiu.com/iuxt//images/202206182239511.png)
 
 目前用到3台机器
 

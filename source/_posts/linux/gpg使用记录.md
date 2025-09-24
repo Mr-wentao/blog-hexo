@@ -6,7 +6,7 @@ tags:
   - gpg
   - 加密
 abbrlink: e0fe652d
-cover: 'https://static.zahui.fan/images/202212261651813.svg'
+cover: 'https://s3.babudiu.com/iuxt//images/202212261651813.svg'
 date: 2022-12-26 08:48:05
 ---
 
@@ -69,7 +69,7 @@ Key is valid for? (0)
 
 这里有一串字符。就是key的id，后面的操作都需要这个。
 
-![查看key](https://static.zahui.fan/images/202212271033949.png)
+![查看key](https://s3.babudiu.com/iuxt//images/202212271033949.png)
 
 ## 创建子密钥
 

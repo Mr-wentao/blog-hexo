@@ -5,7 +5,7 @@ categories:
 tags:
   - k8s
 abbrlink: b1a2141c
-cover: 'https://static.zahui.fan/images/202211212221065.svg'
+cover: 'https://s3.babudiu.com/iuxt//images/202211212221065.svg'
 date: 2022-11-07 11:52:11
 ---
 

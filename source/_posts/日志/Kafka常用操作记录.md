@@ -75,6 +75,32 @@ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test_top
 ```
 
 
+## 清理积压的消息
+
+```bash
+# 直接跳过偏移量，将消费组的偏移量设置为最新的偏移量
+bin/kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 \
+  --group 你的消费组名称 \
+  --topic 你的主题名称 \
+  --reset-offsets --to-latest \
+  --execute
+
+# 重置到 24 小时前的偏移量（格式：PnDTnHnMnS，如 P1D 表示 1 天）
+bin/kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 \
+  --group 你的消费组名称 \
+  --topic 你的主题名称 \
+  --reset-offsets --by-duration P1D \
+  --execute
+
+# 重置到指定偏移量
+bin/kafka-consumer-groups.sh --bootstrap-server 127.0.0.1:9092 \
+  --group 你的消费组名称 \
+  --topic 你的主题名称:0  # 指定分区（如 0 号分区）
+  --reset-offsets --to-offset 10000 \  # 重置到偏移量 10000
+  --execute
+```
+
+
 ### 控制台查看最新消息
 
 #### 查看一个topic的每个partition的offset
@@ -82,11 +108,11 @@ bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test_top
 bin/kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list alikafka-pre-cn-uax3b5ny1002-1-vpc.alikafka.aliyuncs.com:9092,alikafka-pre-cn-uax3b5ny1002-2-vpc.alikafka.aliyuncs.com:9092,alikafka-pre-cn-uax3b5ny1002-3-vpc.alikafka.aliyuncs.com:9092 --topic nova_event_topic --time -1
 ```
 
-![image.png](https://static.zahui.fan/images/202312051049856.png)
+![image.png](https://s3.babudiu.com/iuxt//images/202312051049856.png)
 
 #### 根据每个partition的offset来消费最新消息
 ```bash
 bin/kafka-console-consumer.sh --bootstrap-server alikafka-pre-cn-uax3b5ny1002-1-vpc.alikafka.aliyuncs.com:9092,alikafka-pre-cn-uax3b5ny1002-2-vpc.alikafka.aliyuncs.com:9092,alikafka-pre-cn-uax3b5ny1002-3-vpc.alikafka.aliyuncs.com:9092 --topic nova_event_topic --partition 0 --offset 12080
 ```
 
-![image.png](https://static.zahui.fan/images/202312051050803.png)
+![image.png](https://s3.babudiu.com/iuxt//images/202312051050803.png)

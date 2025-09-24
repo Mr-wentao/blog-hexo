@@ -6,7 +6,7 @@ categories:
 tags:
   - Container
   - Docker
-cover: 'https://static.zahui.fan/images/202211011524478.png'
+cover: 'https://s3.babudiu.com/iuxt//images/202211011524478.png'
 date: 2021-09-29 16:51:31
 ---
 
@@ -54,7 +54,7 @@ docker buildx build --push \
 
 这个时候登录dockerhub查看
 
-![docker镜像](https://static.zahui.fan/images/20220518103637.png)
+![docker镜像](https://s3.babudiu.com/iuxt//images/20220518103637.png)
 可以看到已经是多平台支持了。
 
 ```bash

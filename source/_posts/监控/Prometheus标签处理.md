@@ -26,7 +26,7 @@ date: 2023-07-28 15:07:00
 
 元标签是不会写到数据库当中的，使用promql是查询不到这些标签的，如果需要源标签的数据（比如k8s部署的Prometheus使用自动发现获取pod监控），这个时候就需要把一些元标签重新打标签来使用。
 
-![](https://static.zahui.fan/images/202307311829414.png)
+![](https://s3.babudiu.com/iuxt//images/202307311829414.png)
 
 比如上图，监控k8s的pod状态， 因为pod是动态的，所以需要pod名字和pod的namespace信息，就可以从元标签中取值。
 
@@ -83,7 +83,7 @@ action 重新标记标签动作, 可以取的值有：
 
 可以看到该标签已经进入数据库里面了，这样就根据源标签通过正则匹配动态生成了新的标签 
 
-![](https://static.zahui.fan/images/202307311816271.png)
+![](https://s3.babudiu.com/iuxt//images/202307311816271.png)
 
 ### 选择采集的目标
 

@@ -1,7 +1,7 @@
 ---
 title: Kubernetes使用NFS作为存储
 abbrlink: 179eb842
-cover: 'https://static.zahui.fan/images/202211212221065.svg'
+cover: 'https://s3.babudiu.com/iuxt//images/202211212221065.svg'
 categories:
   - Kubernetes
 tags:

@@ -1,7 +1,7 @@
 ---
 title: Filebeat输出日志格式处理
 abbrlink: 1a418f5e
-cover: 'https://static.zahui.fan/public/elasticsearch.svg'
+cover: 'https://s3.babudiu.com/iuxt//public/elasticsearch.svg'
 categories:
   - 日志
 tags:

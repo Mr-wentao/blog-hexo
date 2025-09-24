@@ -6,7 +6,7 @@ tags:
   - 加密
   - SSL
 abbrlink: lqxf8k8u
-cover: 'https://static.zahui.fan/images/202401041718150.png'
+cover: 'https://s3.babudiu.com/iuxt//images/202401041718150.png'
 date: 2024-01-03 14:52:44
 ---
 ## 在线验证
@@ -51,7 +51,7 @@ nmap --script ssl-enum-ciphers -p 443 baidu.com
 ```
 
 比如GitHub只支持TLS1.2和TLS1.3：
-![image.png](https://static.zahui.fan/images/202401031545944.png)
+![image.png](https://s3.babudiu.com/iuxt//images/202401031545944.png)
 
 
 ## 服务端TLS版本配置

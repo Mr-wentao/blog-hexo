@@ -6,7 +6,7 @@ tags:
   - ArchLinux
   - 配置记录
 abbrlink: 5a1b6f71
-cover: 'https://static.zahui.fan/images/202301302348626.png'
+cover: 'https://s3.babudiu.com/iuxt//images/202301302348626.png'
 date: 2023-01-25 20:50:35
 ---
 
@@ -124,7 +124,7 @@ reboot
 
 基本系统安装, 也可以使用archinstall, 这个是在虚拟机环境下, 我的安装配置.
 
-![](https://static.zahui.fan/images/202307300923540.png)
+![](https://s3.babudiu.com/iuxt//images/202307300923540.png)
 
 ## 图形界面
 

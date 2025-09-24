@@ -8,7 +8,7 @@ tags:
   - 容器
   - 漏洞扫描
 abbrlink: 8b932a1b
-cover: 'https://static.zahui.fan/images/202305181012814.jpg'
+cover: 'https://s3.babudiu.com/iuxt//images/202305181012814.jpg'
 date: 2023-05-12 15:55:43
 ---
 
@@ -72,8 +72,8 @@ environment=SCANNER_API_SERVER_ADDR=:8181,SCANNER_REDIS_URL=redis://localhost:63
 
 harbor 系统管理 审查服务 扫描器 里面添加trivy地址：
 
-![trivy扫描器](https://static.zahui.fan/images/202305121619236.png)
+![trivy扫描器](https://s3.babudiu.com/iuxt//images/202305121619236.png)
 
 然后就可以正常扫描镜像了
 
-![扫描结果](https://static.zahui.fan/images/202305121624912.png)
+![扫描结果](https://s3.babudiu.com/iuxt//images/202305121624912.png)

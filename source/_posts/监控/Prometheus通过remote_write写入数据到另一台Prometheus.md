@@ -1,7 +1,7 @@
 ---
 title: Prometheus通过remote_write写入数据到另一台Prometheus
 abbrlink: 666e547f
-cover: 'https://static.zahui.fan/images/202211212208509.svg'
+cover: 'https://s3.babudiu.com/iuxt//images/202211212208509.svg'
 categories:
   - 监控
 tags:

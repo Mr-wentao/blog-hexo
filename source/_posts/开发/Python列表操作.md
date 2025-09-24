@@ -6,7 +6,7 @@ tags:
   - 常用操作
   - python
 abbrlink: e367d008
-cover: 'https://static.zahui.fan/images/202307020714544.svg'
+cover: 'https://s3.babudiu.com/iuxt//images/202307020714544.svg'
 date: 2023-06-27 15:36:51
 ---
 

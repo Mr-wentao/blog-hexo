@@ -6,7 +6,7 @@ tags:
   - Kubernetes
   - k8s
 abbrlink: lo47lj11
-cover: 'https://static.zahui.fan/images/202211212221065.svg'
+cover: 'https://s3.babudiu.com/iuxt//images/202211212221065.svg'
 date: 2023-10-24 18:54:08
 ---
 
@@ -22,7 +22,7 @@ kubectl get --raw /api/v1/nodes/10.20.20.12/proxy/stats/summary | jq '.pods[] | 
 ```
 
 输出结果如图:
-![image.png](https://static.zahui.fan/images/202310241858426.png)
+![image.png](https://s3.babudiu.com/iuxt//images/202310241858426.png)
 
 ## Docker相关操作
 

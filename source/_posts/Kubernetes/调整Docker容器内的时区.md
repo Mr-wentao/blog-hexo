@@ -7,7 +7,7 @@ tags:
   - timezone
   - 时区
 abbrlink: 3c828831
-cover: 'https://static.zahui.fan/images/202211011524478.png'
+cover: 'https://s3.babudiu.com/iuxt//images/202211011524478.png'
 date: 2022-12-21 12:29:55
 ---
 

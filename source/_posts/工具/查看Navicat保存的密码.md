@@ -7,7 +7,7 @@ tags:
   - Docker
   - PHP
 abbrlink: lqoui8yg
-cover: 'https://static.zahui.fan/images/202312281506687.png'
+cover: 'https://s3.babudiu.com/iuxt//images/202312281506687.png'
 date: 2023-12-28 14:50:14
 ---
 Navicat密码一旦保存, 再次编辑就没法查看密码是什么了, 包括之前可以使用的星号密码查看器也看不到密码, 我们可以通过导出链接文件, 然后通过解密被加密的密码来获取密码原文.
@@ -15,10 +15,10 @@ Navicat密码一旦保存, 再次编辑就没法查看密码是什么了, 包括
 ## 导出加密密码
 
 打开Navicat -- 文件 -- 导出连接
-![image.png](https://static.zahui.fan/images/202312281454479.png)
+![image.png](https://s3.babudiu.com/iuxt//images/202312281454479.png)
 
 接下来的弹窗里, 勾选导出密码, 然后导出成ncx文件
-![image.png](https://static.zahui.fan/images/202312281454290.png)
+![image.png](https://s3.babudiu.com/iuxt//images/202312281454290.png)
 
 用文本编辑器打开 connections.ncx 文件, 复制 password 的值, 这个就是加密后的密码.
 
@@ -185,6 +185,6 @@ echo $decode."\n";
 docker run --rm -v $(pwd):/data php:8.3.1-cli php /data/decode_navicat_password.php
 ```
 
-![image.png](https://static.zahui.fan/images/202312281503747.png)
+![image.png](https://s3.babudiu.com/iuxt//images/202312281503747.png)
 
 密码会打印在控制台上.

@@ -6,7 +6,7 @@ tags:
   - django
   - mysql
 abbrlink: 28913a98
-cover: 'https://static.zahui.fan/public/django.svg'
+cover: 'https://s3.babudiu.com/iuxt//public/django.svg'
 date: 2022-11-21 17:54:17
 ---
 

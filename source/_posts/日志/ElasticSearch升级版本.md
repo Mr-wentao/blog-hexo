@@ -6,7 +6,7 @@ categories:
 tags:
   - ElasticSearch
   - ES
-cover: 'https://static.zahui.fan/public/elasticsearch.svg'
+cover: 'https://s3.babudiu.com/iuxt//public/elasticsearch.svg'
 date: 2022-10-14 16:00:15
 ---
 

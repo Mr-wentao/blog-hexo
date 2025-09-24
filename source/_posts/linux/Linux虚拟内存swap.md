@@ -1,7 +1,7 @@
 ---
 title: Linux虚拟内存swap
 abbrlink: '25938561'
-cover: 'https://static.zahui.fan/images/202211041307268.jpg'
+cover: 'https://s3.babudiu.com/iuxt//images/202211041307268.jpg'
 categories:
   - linux
 tags:

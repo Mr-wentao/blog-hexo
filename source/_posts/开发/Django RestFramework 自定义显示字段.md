@@ -7,7 +7,7 @@ tags:
   - drf
   - django
 abbrlink: lqz1imdm
-cover: 'https://static.zahui.fan/images/202401042236989.png'
+cover: 'https://s3.babudiu.com/iuxt//images/202401042236989.png'
 date: 2024-01-04 18:04:11
 ---
 有的时候序列化出来的字段并不是我们想要的， 比如说返回的用户id，而我们想要返回的是用户名， 这个时候可以用到django rest framework的自定义字段功能。
@@ -69,7 +69,7 @@ class GameSerializer(serializers.ModelSerializer):
         }
 ```
 
-![image.png](https://static.zahui.fan/images/202401041811348.png)
+![image.png](https://s3.babudiu.com/iuxt//images/202401041811348.png)
 
 ### views:
 ```python

@@ -83,4 +83,4 @@ server {
 
 这个时候两个域名访问效果一模一样了.
 
-![访问效果](https://static.zahui.fan/images/202304181941595.png)
+![访问效果](https://s3.babudiu.com/iuxt//images/202304181941595.png)

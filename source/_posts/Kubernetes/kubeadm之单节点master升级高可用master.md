@@ -1,7 +1,7 @@
 ---
 title: Kubeadm之单节点master升级高可用master
 abbrlink: 34d8fad0
-cover: 'https://static.zahui.fan/images/202211212221065.svg'
+cover: 'https://s3.babudiu.com/iuxt//images/202211212221065.svg'
 categories:
   - Kubernetes
 tags:

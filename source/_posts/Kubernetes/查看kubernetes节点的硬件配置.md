@@ -5,7 +5,7 @@ categories:
 tags:
   - k8s
   - 常用操作
-cover: 'https://static.zahui.fan/images/202211212221065.svg'
+cover: 'https://s3.babudiu.com/iuxt//images/202211212221065.svg'
 abbrlink: 787ab20b
 date: 2023-10-25 11:33:54
 ---
@@ -19,4 +19,4 @@ kubectl get node -o json | jq '.items[] | "=====================================
 
 输出结果类似于:
 
-![image.png](https://static.zahui.fan/images/202310251137563.png)
+![image.png](https://s3.babudiu.com/iuxt//images/202310251137563.png)

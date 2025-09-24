@@ -7,7 +7,7 @@ tags:
   - cc攻击
   - iptables
 abbrlink: c0880a78
-cover: 'https://static.zahui.fan/images/202301161323588.png'
+cover: 'https://s3.babudiu.com/iuxt/images/202301161323588.png'
 date: 2023-01-16 11:08:46
 ---
 

@@ -7,7 +7,7 @@ tags:
   - Container
   - 编码
   - Docker
-cover: 'https://static.zahui.fan/images/202211011524478.png'
+cover: 'https://s3.babudiu.com/iuxt//images/202211011524478.png'
 date: 2021-11-04 10:29:11
 ---
 

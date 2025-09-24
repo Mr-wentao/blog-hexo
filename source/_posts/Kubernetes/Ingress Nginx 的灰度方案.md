@@ -3,7 +3,7 @@ title: Ingress Nginx 的灰度方案
 abbrlink: c86b58e3
 categories:
   - Kubernetes
-cover: 'https://static.zahui.fan/images/202211212221065.svg'
+cover: 'https://s3.babudiu.com/iuxt//images/202211212221065.svg'
 tags:
   - ingress
   - nginx

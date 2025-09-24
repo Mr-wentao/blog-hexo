@@ -1,6 +1,6 @@
 ---
 title: Kubernetes的3中探针readinessProbe、livenessProbe和startupProbe
-cover: 'https://static.zahui.fan/images/202211212221065.svg'
+cover: 'https://s3.babudiu.com/iuxt//images/202211212221065.svg'
 categories:
   - Kubernetes
 tags:

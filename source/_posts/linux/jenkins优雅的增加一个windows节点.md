@@ -8,7 +8,7 @@ tags:
   - agnet
   - cygwin
 abbrlink: 288e897b
-cover: 'https://static.zahui.fan/images/202304111550061.svg'
+cover: 'https://s3.babudiu.com/iuxt//images/202304111550061.svg'
 date: 2023-04-11 14:54:37
 ---
 
@@ -54,24 +54,24 @@ jenkins默认不会读取环境变量， 所以我们需要手动复制java的�
 
 jenkins 系统管理 -->  节点管理
 
-![配置从节点](https://static.zahui.fan/images/202304111530133.png)
+![配置从节点](https://s3.babudiu.com/iuxt//images/202304111530133.png)
 
-![添加凭据](https://static.zahui.fan/images/202304111531143.png)
+![添加凭据](https://s3.babudiu.com/iuxt//images/202304111531143.png)
 
 
 ## 构建流水线
 
 确认节点上线了。
-![节点状态](https://static.zahui.fan/images/202304111546325.png)
+![节点状态](https://s3.babudiu.com/iuxt//images/202304111546325.png)
 
 这里限制构建所在的节点
-![指定构建节点](https://static.zahui.fan/images/202304111546102.png)
+![指定构建节点](https://s3.babudiu.com/iuxt//images/202304111546102.png)
 
 构建过程选择 执行 Windows 批处理命令
-![构建步骤](https://static.zahui.fan/images/202304111547029.png)
+![构建步骤](https://s3.babudiu.com/iuxt//images/202304111547029.png)
 
 已经可以正常构建了
-![构建输出](https://static.zahui.fan/images/202304111728884.png)
+![构建输出](https://s3.babudiu.com/iuxt//images/202304111728884.png)
 
 ## 常见问题
 
@@ -81,14 +81,14 @@ jenkins 系统管理 -->  节点管理
 2. 配置PATH环境变量到jenkins
 3. 手动配置你需要的工具的路径
 
-![命令不存在](https://static.zahui.fan/images/202304111819597.png)
+![命令不存在](https://s3.babudiu.com/iuxt//images/202304111819597.png)
 
 我更喜欢第二种方法：
 
 到windows里面cmd执行 path命令，将path后面的值复制
 
-![path结果](https://static.zahui.fan/images/202304111821871.png)
+![path结果](https://s3.babudiu.com/iuxt//images/202304111821871.png)
 
 配置在 jenkins  -->  节点列表  -->  相关节点的环境变量中。
 
-![配置环境变量](https://static.zahui.fan/images/202304111822648.png)
+![配置环境变量](https://s3.babudiu.com/iuxt//images/202304111822648.png)

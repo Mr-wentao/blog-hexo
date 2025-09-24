@@ -1,7 +1,7 @@
 ---
 title: Kubernetes之master高可用方案
 abbrlink: 10cef768
-cover: 'https://static.zahui.fan/images/202211212221065.svg'
+cover: 'https://s3.babudiu.com/iuxt//images/202211212221065.svg'
 categories:
   - Kubernetes
 tags:
@@ -19,13 +19,13 @@ date: 2022-03-14 20:50:24
 这种就是比较容易想到的一种方案，比如3个master节点，前面有一台负载均衡（nginx、haproxy、lvs）等，但是负载均衡本身就是一个单点故障，所以一般来说还需要另一台负载均衡，通过keepalived来实现VIP的切换
 [使用Keepalived来实现Nginx高可用](/posts/0cebb8ae)
 
-![针对master节点做负载均衡](https://static.zahui.fan/images/lb_keepalived.png)  
+![针对master节点做负载均衡](https://s3.babudiu.com/iuxt//images/lb_keepalived.png)  
 
 ## 在master上使用vip
 
 架构图如图所示， 使用keepalived维护vip，每台master节点上都运行着一个负载均衡
 
-![在master上使用vip](https://static.zahui.fan/images/202207050032858.jpg)
+![在master上使用vip](https://s3.babudiu.com/iuxt//images/202207050032858.jpg)
 
 > 抢占式 和 非抢占式的区别： 比如master1默认的权重（priority）高，vip当前在master1上， master1挂掉后vip会飘到master2上，那么如果master1恢复正常了，抢占式会重新将vip抢过来，再次绑定到master1上，非抢占式则保持在master2上，除非master2也出问题。
 
@@ -270,7 +270,7 @@ vrrp_instance VI_1 {                        # 实例名
 是看到了有些开源项目不用额外的负载均衡器也可以完成master高可用  
 方案就是所有节点上安装负载均衡，架构图如下, 监听的是127.0.0.1:6443，所有的服务都连接127.0.0.1:6443端口，然后负载到3台master，这样不用担心负载均衡挂掉，挂掉也只会影响自己，缺点就是每台机器都需要额外部署服务，master节点发生变化后, 每台机器都需要更新负载均衡的配置。
 
-![在worker节点搭建负载均衡](https://static.zahui.fan/images/worker_lb.jpg)  
+![在worker节点搭建负载均衡](https://s3.babudiu.com/iuxt//images/worker_lb.jpg)  
 
 
 ### 安装集群的时候
@@ -407,4 +407,4 @@ stream {
 
 查看监听端口, 此时可以正常启动 负载均衡了.
 
-![image.png](https://static.zahui.fan/images/202311171817270.png)
+![image.png](https://s3.babudiu.com/iuxt//images/202311171817270.png)

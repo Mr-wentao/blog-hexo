@@ -1,7 +1,7 @@
 ---
 title: selenium--web自动化工具
 abbrlink: 7a4b3586
-cover: 'https://static.zahui.fan/images/202211041307268.jpg'
+cover: 'https://s3.babudiu.com/iuxt//images/202211041307268.jpg'
 categories:
   - 开发
 tags:
@@ -30,13 +30,13 @@ pip install selenium -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 获取xpath可以按下`ctrl + shift + c`点击按钮， 高亮的地方右键复制 full xpath
 
-![获取XPATH属性](https://static.zahui.fan/images/202211251607799.png)
+![获取XPATH属性](https://s3.babudiu.com/iuxt//images/202211251607799.png)
 
 ### 获取id
 
 Charome浏览器界面按下`ctrl + shift + c` 点击页面, 右边属性记录一下html的id属性
 
-![获取id属性](https://static.zahui.fan/images/202211251604573.png)
+![获取id属性](https://s3.babudiu.com/iuxt//images/202211251604573.png)
 
 ### 代码
 

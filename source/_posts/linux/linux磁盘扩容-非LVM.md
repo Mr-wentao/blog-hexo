@@ -1,7 +1,7 @@
 ---
 title: linux磁盘扩容(非LVM)
 abbrlink: 33420276
-cover: 'https://static.zahui.fan/images/202211041307268.jpg'
+cover: 'https://s3.babudiu.com/iuxt//images/202211041307268.jpg'
 categories:
   - linux
 tags:

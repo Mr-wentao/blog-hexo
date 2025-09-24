@@ -1,7 +1,7 @@
 ---
 title: Shell指定分隔符
 abbrlink: e93bd813
-cover: 'https://static.zahui.fan/images/202211041307268.jpg'
+cover: 'https://s3.babudiu.com/iuxt//images/202211041307268.jpg'
 categories:
   - linux
 tags:

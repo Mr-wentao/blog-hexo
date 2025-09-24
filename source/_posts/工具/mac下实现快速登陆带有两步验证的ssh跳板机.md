@@ -8,7 +8,7 @@ tags:
   - pyotp
   - 效率工具
 abbrlink: ee380870
-cover: 'https://static.zahui.fan/images/202308242224563.png'
+cover: 'https://s3.babudiu.com/iuxt//images/202308242224563.png'
 date: 2023-08-24 18:19:01
 ---
 
@@ -18,11 +18,11 @@ date: 2023-08-24 18:19:01
 
 mac因为安全问题使用brew已经无法安装sshpass这个包了， 我们可以使用ssh key来进行免密登陆并提高安全性。不同的跳板机平台设置方式不太一样，基本都是在个人信息设置里面增加。
 
-![](https://static.zahui.fan/images/202308241841436.png)
+![](https://s3.babudiu.com/iuxt//images/202308241841436.png)
 
 ## 解决输入两步验证码的问题
 
-![](https://static.zahui.fan/images/202308241827374.png)
+![](https://s3.babudiu.com/iuxt//images/202308241827374.png)
 
 两步验证码就是TOTP，基于生成的6位数字， 30s更换一次， 我们需要先拿到TOTP的seed， 一般都会给一个二维码，用二维码解析工具解析， 解析出来的内容大致类似于：
 

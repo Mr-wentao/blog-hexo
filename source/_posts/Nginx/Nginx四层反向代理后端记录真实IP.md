@@ -10,7 +10,7 @@ date: 2022-06-08 09:58:58
 ---
 
 使用k8s的ingress暴露服务，会有使用负载均衡反向代理ingress的情况，那么我们的ingress获取到的ip都是4层负载的ip，比如常用架构图
-![常用架构](https://static.zahui.fan/images/20220608100711.png)
+![常用架构](https://s3.babudiu.com/iuxt//images/20220608100711.png)
 
 4层Proxy Protocol透传tcp工作在网络第4层,Proxy Protocol就是在tcp中增加一个小的报头，用来存储额外的信息
 

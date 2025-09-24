@@ -6,7 +6,7 @@ categories:
 tags:
   - Container
   - Kubernetes
-cover: 'https://static.zahui.fan/images/202211212221065.svg'
+cover: 'https://s3.babudiu.com/iuxt//images/202211212221065.svg'
 date: 2021-10-15 09:38:31
 ---
 
@@ -30,7 +30,7 @@ date: 2021-10-15 09:38:31
 
 我觉得还是公司在把容器当作虚拟机在用，并没有发挥容器的优势，反而增加了很多维护成本。  
 和领导提过这个方案，被否定了。原因如下：  
-![建议](https://static.zahui.fan/images/Screenshot_20211015_111956.png)
+![建议](https://s3.babudiu.com/iuxt//images/Screenshot_20211015_111956.png)
 
 ## 反思
 

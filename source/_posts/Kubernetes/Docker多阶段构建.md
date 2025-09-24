@@ -1,6 +1,6 @@
 ---
 title: Docker多阶段构建
-cover: 'https://static.zahui.fan/images/202211011524478.png'
+cover: 'https://s3.babudiu.com/iuxt//images/202211011524478.png'
 categories:
   - Kubernetes
 tags:

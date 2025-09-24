@@ -2,7 +2,7 @@
 title: MySQL主从同步配置
 abbrlink: 265ea5f9
 description: 主从同步可以相当于实时备份，读写分离还能提高数据库的性能，记录一下主从同步的配置。
-cover: 'https://static.zahui.fan/images/202211012250095.svg'
+cover: 'https://s3.babudiu.com/iuxt//images/202211012250095.svg'
 categories:
   - 数据库
 tags:

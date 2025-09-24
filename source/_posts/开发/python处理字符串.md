@@ -6,7 +6,7 @@ tags:
   - python
   - 字符串
 abbrlink: 5d196648
-cover: 'https://static.zahui.fan/images/202307020714544.svg'
+cover: 'https://s3.babudiu.com/iuxt//images/202307020714544.svg'
 date: 2023-06-30 19:50:38
 ---
 

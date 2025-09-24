@@ -5,7 +5,7 @@ categories:
 tags:
   - ElasticSearch
   - ES
-cover: 'https://static.zahui.fan/public/elasticsearch.svg'
+cover: 'https://s3.babudiu.com/iuxt//public/elasticsearch.svg'
 abbrlink: a07ebcb
 date: 2022-11-02 12:48:18
 ---

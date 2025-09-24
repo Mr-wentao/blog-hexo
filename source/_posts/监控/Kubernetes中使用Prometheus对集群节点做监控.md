@@ -9,7 +9,7 @@ tags:
   - prometheus
   - node_exporter
   - monitor
-cover: 'https://static.zahui.fan/images/202211212221065.svg'
+cover: 'https://s3.babudiu.com/iuxt//images/202211212221065.svg'
 date: 2022-09-20 16:28:16
 ---
 

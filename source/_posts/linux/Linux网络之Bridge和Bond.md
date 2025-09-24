@@ -1,7 +1,7 @@
 ---
 title: Linux网络之Bridge和Bond
 abbrlink: 8ec7155e
-cover: 'https://static.zahui.fan/images/202211041307268.jpg'
+cover: 'https://s3.babudiu.com/iuxt//images/202211041307268.jpg'
 categories:
   - linux
 tags:
@@ -21,7 +21,7 @@ date: 2021-06-09 09:56:11
 2. 使用nmtui创建网桥，并将网卡设备绑定到网桥， 一般关闭生成树协议（STP）  
 3. 检查`/etc/sysconfig/network-scripts/`里面有没有多余的配置文件，有的话需要删除以免冲突  
 4. 网卡和网桥都需要开机自启动  
-![nmtui](https://static.zahui.fan/images/nmtui.gif)
+![nmtui](https://s3.babudiu.com/iuxt//images/nmtui.gif)
 
 ## 使用配置文件创建网桥
 

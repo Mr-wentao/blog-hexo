@@ -7,7 +7,7 @@ tags:
   - 权限管理
   - RBAC
 abbrlink: lefa6qhl
-cover: 'https://static.zahui.fan/images/202211212221065.svg'
+cover: 'https://s3.babudiu.com/iuxt//images/202211212221065.svg'
 date: 2023-02-22 14:15:01
 ---
 

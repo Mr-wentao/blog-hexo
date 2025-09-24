@@ -6,7 +6,7 @@ tags:
   - time
   - 时间
 abbrlink: 871fdda4
-cover: 'https://static.zahui.fan/images/202211041307268.jpg'
+cover: 'https://s3.babudiu.com/iuxt//images/202211041307268.jpg'
 date: 2022-11-07 12:51:06
 ---
 

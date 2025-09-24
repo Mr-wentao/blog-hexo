@@ -5,7 +5,7 @@ categories:
   - 工具
 tags:
   - Automatic
-cover: 'https://static.zahui.fan/images/202211011808880.png'
+cover: 'https://s3.babudiu.com/iuxt//images/202211011808880.png'
 date: 2021-07-27 23:54:56
 ---
 
@@ -17,7 +17,7 @@ date: 2021-07-27 23:54:56
 
 需要先将环境变量配置在 Settings -->  Secrets and Variables  -->  Actions 里面
 
-![github Acrions 环境变量配置](https://static.zahui.fan/images/202304111133670.png)
+![github Acrions 环境变量配置](https://s3.babudiu.com/iuxt//images/202304111133670.png)
 
 配置后，可以在actions里面通过 `${{ secrets.dingtalk_secret }}` 调用到对应的数据
 

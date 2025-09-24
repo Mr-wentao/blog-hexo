@@ -1,7 +1,7 @@
 ---
 title: Kubernetes之ingress-nginx安装配置
 abbrlink: 30bdb1c5
-cover: 'https://static.zahui.fan/images/202211212221065.svg'
+cover: 'https://s3.babudiu.com/iuxt//images/202211212221065.svg'
 categories:
   - Kubernetes
 tags:

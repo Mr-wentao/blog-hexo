@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://zahui.fan/sitemap.xml
+Sitemap: https://blog.vrzbq.com/sitemap.xml

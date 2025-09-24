@@ -3,7 +3,7 @@ title: Docker容器间优雅的互联
 abbrlink: d083ba2e
 categories:
   - Kubernetes
-cover: 'https://static.zahui.fan/images/202211011524478.png'
+cover: 'https://s3.babudiu.com/iuxt//images/202211011524478.png'
 tags:
   - Docker
   - Container

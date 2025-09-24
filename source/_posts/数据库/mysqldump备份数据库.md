@@ -1,7 +1,7 @@
 ---
 title: Mysqldump备份数据库
 abbrlink: 913ca09b
-cover: 'https://static.zahui.fan/images/202211012250095.svg'
+cover: 'https://s3.babudiu.com/iuxt//images/202211012250095.svg'
 categories:
   - 数据库
 tags:

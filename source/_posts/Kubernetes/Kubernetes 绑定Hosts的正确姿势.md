@@ -1,7 +1,7 @@
 ---
 title: Kubernetes 绑定Hosts的正确姿势
 abbrlink: 23f11af0
-cover: 'https://static.zahui.fan/images/202211212221065.svg'
+cover: 'https://s3.babudiu.com/iuxt//images/202211212221065.svg'
 categories:
   - Kubernetes
 tags:

@@ -1,7 +1,7 @@
 ---
 title: Linux设置默认的文本编辑器
 abbrlink: b8c29b0f
-cover: 'https://static.zahui.fan/images/202211041307268.jpg'
+cover: 'https://s3.babudiu.com/iuxt//images/202211041307268.jpg'
 categories:
   - linux
 tags:

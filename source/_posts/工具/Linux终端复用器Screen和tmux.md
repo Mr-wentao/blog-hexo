@@ -30,7 +30,7 @@ apt-get install -y tmux
 
 ## 快速使用
 输入 `tmux` 即可启动, 在终端下面有一条状态栏, 显示当前的终端编号.
-![](https://static.zahui.fan/images/202309081022830.png)
+![](https://s3.babudiu.com/iuxt//images/202309081022830.png)
 
 退出输入: `exit` 或者按下 `Ctrl + d`
 查看后台运行的会话: `tmux ls`

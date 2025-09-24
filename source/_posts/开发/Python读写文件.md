@@ -6,7 +6,7 @@ tags:
   - Python
   - 文件
 abbrlink: fe29bf0b
-cover: 'https://static.zahui.fan/images/202307020714544.svg'
+cover: 'https://s3.babudiu.com/iuxt//images/202307020714544.svg'
 date: 2022-12-28 21:24:25
 ---
 

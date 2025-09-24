@@ -5,7 +5,7 @@ categories:
 tags:
   - redis
 abbrlink: 5cc4b89d
-cover: 'https://static.zahui.fan/images/202212202103572.svg'
+cover: 'https://s3.babudiu.com/iuxt//images/202212202103572.svg'
 date: 2022-12-16 10:43:06
 ---
 
@@ -44,7 +44,7 @@ redis-cli --cluster create --cluster-replicas 1 192.168.1.11:6379 192.168.1.12:6
 
 出现提示，输入yes
 
-![创建集群](https://static.zahui.fan/images/202212161407297.png)
+![创建集群](https://s3.babudiu.com/iuxt//images/202212161407297.png)
 
 ## 连接集群
 

@@ -6,7 +6,7 @@ tags:
   - mysql
   - MySQL
 abbrlink: d7f12bf0
-cover: 'https://static.zahui.fan/images/202211012250095.svg'
+cover: 'https://s3.babudiu.com/iuxt//images/202211012250095.svg'
 date: 2023-07-20 16:31:08
 ---
 

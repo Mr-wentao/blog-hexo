@@ -1,6 +1,6 @@
 ---
 title: Centos7下使用kubeadm搭建高可用k8s 1.28集群
-cover: 'https://static.zahui.fan/images/202211212221065.svg'
+cover: 'https://s3.babudiu.com/iuxt//images/202211212221065.svg'
 categories:
   - Kubernetes
 tags:
@@ -415,7 +415,7 @@ kubectl -n kube-system edit configmap kube-proxy
 
 mode参数修改成ipvs
 
-![image.png](https://static.zahui.fan/images/202312112232082.png)
+![image.png](https://s3.babudiu.com/iuxt//images/202312112232082.png)
 
 
 ```bash
@@ -423,7 +423,7 @@ kubectl -n kube-system rollout restart daemonset kube-proxy
 ```
 
 查看kube-proxy日志，出现 Using ipvs Proxier 说明修改成功。
-![image.png](https://static.zahui.fan/images/202312112236807.png)
+![image.png](https://s3.babudiu.com/iuxt//images/202312112236807.png)
 
 ### 如何移除节点
 

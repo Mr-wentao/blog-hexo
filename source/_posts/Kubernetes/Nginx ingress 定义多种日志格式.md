@@ -1,7 +1,7 @@
 ---
 title: Nginx Ingress 定义多种日志格式
 abbrlink: dcab3f5f
-cover: 'https://static.zahui.fan/images/202211212221065.svg'
+cover: 'https://s3.babudiu.com/iuxt//images/202211212221065.svg'
 categories:
   - Kubernetes
 tags:

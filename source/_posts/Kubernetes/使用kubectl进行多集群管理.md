@@ -44,7 +44,7 @@ kubectl get pod --kubeconfig=config-uat
 
 确保每个kubeconfig里面部分参数唯一性,可以手动修改一下
 
-![image.png](https://static.zahui.fan/images/202312181126408.png)
+![image.png](https://s3.babudiu.com/iuxt//images/202312181126408.png)
 
 ### 合并配置文件
 

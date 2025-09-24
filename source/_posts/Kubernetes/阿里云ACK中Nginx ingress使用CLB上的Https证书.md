@@ -9,7 +9,7 @@ tags:
   - 阿里云
   - ACK
 abbrlink: lr01lzch
-cover: 'https://static.zahui.fan/images/202401051130624.png'
+cover: 'https://s3.babudiu.com/iuxt//images/202401051130624.png'
 date: 2024-01-05 10:54:34
 ---
 
@@ -21,7 +21,7 @@ date: 2024-01-05 10:54:34
 
 具体可以查看这里
 
-![image.png](https://static.zahui.fan/images/202401051108111.png)
+![image.png](https://s3.babudiu.com/iuxt//images/202401051108111.png)
 
 HTTPS请求会在CLB层解密，然后以HTTP请求的形式发送给后端的Pod。
 
@@ -77,12 +77,12 @@ spec:
 
 照着上面步骤配置了以后, Https访问证书是生效了, 但是没法转发到后端, 会报错: `The plain HTTP request was sent to HTTPS port`
 
-![image.png](https://static.zahui.fan/images/202401051117258.png)
+![image.png](https://s3.babudiu.com/iuxt//images/202401051117258.png)
 
 ### 原因分析:
 简单画个图
 
-![image.png](https://static.zahui.fan/images/202401051118447.png)
+![image.png](https://s3.babudiu.com/iuxt//images/202401051118447.png)
 
 这里https请求在CLB解密后, 请求后面的Ingress是用http协议来请求的, 按道理是所有请求都到pod的80才对, 但是作为用户访问的域名是https, https默认的端口是443, 这样就会造成CLB是使用HTTP协议来请求ingress的HTTPS端口, 所以造成了上面的结果.
 

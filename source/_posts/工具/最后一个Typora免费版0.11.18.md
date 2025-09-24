@@ -1,7 +1,7 @@
 ---
 title: 最后一个Typora免费版0.11.18
 abbrlink: 64b52e0d
-cover: 'https://static.zahui.fan/images/202303181541059.png'
+cover: 'https://s3.babudiu.com/iuxt//images/202303181541059.png'
 categories:
   - 工具
 tags:

@@ -7,7 +7,7 @@ tags:
   - Linux
 date: 2021-04-21 15:54:57
 ---
-![keymap](https://static.zahui.fan/images/vim_keymap.png)
+![keymap](https://s3.babudiu.com/iuxt//images/vim_keymap.png)
 
 ## 替换文本
 

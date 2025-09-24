@@ -1,7 +1,7 @@
 ---
 title: Linux网络设备命名规则及修改
 abbrlink: 69bcc649
-cover: 'https://static.zahui.fan/images/202211041307268.jpg'
+cover: 'https://s3.babudiu.com/iuxt//images/202211041307268.jpg'
 categories:
   - linux
 tags:

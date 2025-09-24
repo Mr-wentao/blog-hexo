@@ -1,7 +1,7 @@
 ---
 title: 编译安装PHP7.2
 abbrlink: a03938f2
-cover: 'https://static.zahui.fan/images/202211012253797.png'
+cover: 'https://s3.babudiu.com/iuxt//images/202211012253797.png'
 categories:
   - linux
 tags:

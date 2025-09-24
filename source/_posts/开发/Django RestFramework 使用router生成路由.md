@@ -7,7 +7,7 @@ tags:
   - django
   - Python
 abbrlink: lqmfi6wc
-cover: 'https://static.zahui.fan/images/202401042236989.png'
+cover: 'https://s3.babudiu.com/iuxt//images/202401042236989.png'
 date: 2023-12-26 22:14:45
 ---
 
